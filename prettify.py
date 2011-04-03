@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 
+# Website: https://pythonadventures.wordpress.com/2011/04/03/prettify-html-with-beautifulsoup/
+# Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
+# 
 # Prettify an HTML page. The script prints the HTML source
 # that is built by BeautifulSoup (BS).
 # Idea: if you want to manipulate a page with BS, analyze
 #       the prettified source because this is how BS
 #       stores it.
 #
-# Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
-# 
 # Usage: prettify <URL>
 
 import sys

@@ -8,7 +8,7 @@
 #
 # Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 # 
-# Usage: prettify.py <URL>
+# Usage: prettify <URL>
 
 import sys
 import urllib

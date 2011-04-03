@@ -7,7 +7,7 @@
 # If no parameter is passed, show the current path.
 # sp.py -> "show path"
 #
-# Usage: sp.py <filename>
+# Usage: sp <filename>
 
 import os
 import os.path

@@ -1,0 +1,15 @@
+Bash Utils (miscellaneous small utils for the bash shell)
+=========================================================
+
+Here I collect some small command-line utils.
+
+Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
+Github:  https://github.com/jabbalaci/Bash-Utils
+
+
+prettify.py
+   Prettify an HTML page. The script prints the HTML source that is built 
+   by BeautifulSoup (BS).
+   Idea: if you want to manipulate a page with BS, analyze the prettified 
+   source instead of the original because this is how BS stores it.
+   Usage: ./prettify.py <URL>

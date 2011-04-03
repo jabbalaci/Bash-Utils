@@ -8,8 +8,14 @@ Github:  https://github.com/jabbalaci/Bash-Utils
 
 
 prettify.py
-   Prettify an HTML page. The script prints the HTML source that is built 
-   by BeautifulSoup (BS).
-   Idea: if you want to manipulate a page with BS, analyze the prettified 
-   source instead of the original because this is how BS stores it.
-   Usage: ./prettify.py <URL>
+    Prettify an HTML page. The script prints the HTML source that is built 
+    by BeautifulSoup (BS).
+    Idea: if you want to manipulate a page with BS, analyze the prettified 
+    source instead of the original because this is how BS stores it.
+    Usage: prettify.py <URL>
+
+sp.py
+    "show path"
+    Website: https://ubuntuincident.wordpress.com/2011/03/17/show-the-absolute-path-of-a-file/
+    Print the absolute path of a file. If no parameter is passed, show the current path.
+    Usage: sp.py <filename>

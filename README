@@ -19,3 +19,10 @@ sp.py
     Website: https://ubuntuincident.wordpress.com/2011/03/17/show-the-absolute-path-of-a-file/
     Print the absolute path of a file. If no parameter is passed, show the current path.
     Usage: sp.py <filename>
+
+tocb.py
+    "to clipboard(s)"
+    Website: https://pythonadventures.wordpress.com/2011/03/05/copy-string-to-x-clipboards/
+    Copy the text from the standard input to ALL clipboards. Thus, you can use 
+    any paste method to insert your text (middle mouse button or Shift+Insert).
+    Usage: cat file.txt | tocb

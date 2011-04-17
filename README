@@ -7,6 +7,14 @@ Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Github:  https://github.com/jabbalaci/Bash-Utils
 
 
+alarm.py
+    A simple alarm script that plays a list of MP3s at a given time.
+    Very useful if you leave your computer switched on during the night.
+    Usage: alarm -p
+               Play music first to adjust volume.
+           alarm -t 7h5
+               Set alarm time (5 past 7 in this example).
+
 prettify.py
     "prettify an HTML page"
     Website: https://pythonadventures.wordpress.com/2011/04/03/prettify-html-with-beautifulsoup/

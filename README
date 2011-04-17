@@ -7,8 +7,15 @@ Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Github:  https://github.com/jabbalaci/Bash-Utils
 
 
+img_to_base64.py
+    Website: https://ubuntuincident.wordpress.com/2011/04/17/embed-images-in-html-pages/
+    Take an image file and encode it with BASE64. Put the encoded data in
+    an "img" HTML tag.
+    Usage: img_to_base64 <image_file>
+
 alarm.py
     A simple alarm script that plays a list of MP3s at a given time.
+    Website: https://ubuntuincident.wordpress.com/2011/04/17/alarm-script/
     Very useful if you leave your computer switched on during the night.
     Usage: alarm -p
                Play music first to adjust volume.

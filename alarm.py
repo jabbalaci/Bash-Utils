@@ -5,7 +5,7 @@ Alarm script
 ============
 
 Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
-Website: ...
+Website: https://ubuntuincident.wordpress.com/2011/04/17/alarm-script/
 GitHub:  https://github.com/jabbalaci/Bash-Utils
 
 A simple alarm script that plays a list of MP3s at a given time.
@@ -37,6 +37,7 @@ from time import sleep
 
 MUSIC_DIR = '/home/jabba/bin/alarm/at_a_given_time/assets'
 MEDIA_PLAYER = '/usr/bin/mplayer'
+DEFAULT_TIME = '6h55'
 
 
 def play_music():
@@ -93,7 +94,7 @@ def check_alarm(alarm_time):
     return hour, minute
 
 
-def main(default):
+def main(default=DEFAULT_TIME):
     parser = OptionParser(usage='%prog [options]')
 
     #[options]
@@ -125,5 +126,4 @@ def main(default):
 
 
 if __name__ == "__main__":
-    default = '6h55'
-    main(default)
+    main()

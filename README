@@ -7,6 +7,10 @@ Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Github:  https://github.com/jabbalaci/Bash-Utils
 
 
+get_images.py
+    Extract image links from a web page.
+    Usage: get_images URL [URL]... [-l]
+
 get_links.py
     Website: https://pythonadventures.wordpress.com/2011/03/10/extract-all-links-from-a-web-page/
     Extract all links from a web page.

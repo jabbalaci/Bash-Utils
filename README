@@ -7,6 +7,11 @@ Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Github:  https://github.com/jabbalaci/Bash-Utils
 
 
+markdown.py
+    Website: https://ubuntuincident.wordpress.com/2011/05/05/readme-markdown-on-github/
+    Preview markdown files in a browser.
+    Usage: markdown.py <file.markdown> [-u]
+
 img_to_base64.py
     Website: https://ubuntuincident.wordpress.com/2011/04/17/embed-images-in-html-pages/
     Take an image file and encode it with BASE64. Put the encoded data in

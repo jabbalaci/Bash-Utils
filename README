@@ -7,6 +7,11 @@ Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Github:  https://github.com/jabbalaci/Bash-Utils
 
 
+get_links.py
+    Website: https://pythonadventures.wordpress.com/2011/03/10/extract-all-links-from-a-web-page/
+    Extract all links from a web page.
+    Usage: get_links <URL>
+
 open_in_tabs.py
     Website: https://ubuntuincident.wordpress.com/2011/03/09/open-urls-in-browser-tabs-simultaneously/
     Read URLs from the standard input and open them in separated tabs.

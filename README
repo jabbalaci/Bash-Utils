@@ -12,7 +12,6 @@ open_in_tabs.py
     Read URLs from the standard input and open them in separated tabs.
     Usage: cat url_list.txt | open_in_tabs
     
-
 markdown.py
     Website: https://ubuntuincident.wordpress.com/2011/05/05/readme-markdown-on-github/
     Preview markdown files in a browser.

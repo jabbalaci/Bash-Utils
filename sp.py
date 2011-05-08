@@ -9,11 +9,10 @@
 #
 # Usage: sp <filename>
 
-import os
 import os.path
 import sys
 
 if len(sys.argv) == 1:
     print os.getcwd()
 else:
-    print os.path.join( os.getcwd(), sys.argv[1] )
+    print os.path.join(os.getcwd(), sys.argv[1])

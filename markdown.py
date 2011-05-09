@@ -13,8 +13,8 @@ Usage:
 ------
 Put it in your ~/bin directory (make sure ~/bin is in your PATH), 
 make it executable (chmod u+x ~/bin/markdown.py), and call it as 
-“markdown.py README.markdown“. It will open the HTML output in a 
-new browser tab. Adding the “-u” switch (update), the HTML is not 
+"markdown.py README.markdown". It will open the HTML output in a 
+new browser tab. Adding the "-u" switch (update), the HTML is not 
 opened in the browser.
 """
 
@@ -25,6 +25,7 @@ MARKDOWN = 'markdown'
 UPSKIRT = 'upskirt'
 
 PROGRAM = UPSKIRT
+VERBOSE = True
 
 def main():
     update = False
@@ -40,5 +41,10 @@ def main():
     os.system("{program} {input} > /tmp/markdown.html".format(program=PROGRAM, input=input_file))
     if not update:
         os.system("chromium-browser /tmp/markdown.html &")
+    if VERBOSE:
+        print >>sys.stderr, "# renderer: {0}".format(PROGRAM)
 
-main()
+#############################################################################
+
+if __name__ == "__main__":
+    main()

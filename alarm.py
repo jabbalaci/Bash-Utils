@@ -35,14 +35,14 @@ from datetime import datetime
 from time import sleep
 
 
-MUSIC_DIR = '/home/jabba/bin/alarm/at_a_given_time/assets'
+MUSIC_DIR = '/home/jabba/bin/alarm/at_a_given_time/assets/rock'
 MEDIA_PLAYER = '/usr/bin/mplayer'
 DEFAULT_TIME = '6h55'
 
 
 def play_music():
     for f in sorted(glob.glob(os.path.join(MUSIC_DIR, '*.mp3'))):
-        val = os.system("{0} {1}".format(MEDIA_PLAYER, f))
+        val = os.system("{0} \"{1}\"".format(MEDIA_PLAYER, f))
         if val == 2:    # interrupted with CTRL-C
             sys.exit(val)
 

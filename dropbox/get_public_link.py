@@ -8,7 +8,7 @@ Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Website: https://ubuntuincident.wordpress.com/2011/06/01/get-the-public-dropbox-links-of-several-files/
 GitHub:  https://github.com/jabbalaci/Bash-Utils (see the dropbox/ folder)
 
-The script shows the public link(s) of one (or several) file(s).
+The script shows the public Dropbox link(s) of one (or several) file(s).
 
 Usage:
 ======

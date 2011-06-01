@@ -7,6 +7,11 @@ Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Github:  https://github.com/jabbalaci/Bash-Utils
 
 
+get_public_link.py
+    Website: https://ubuntuincident.wordpress.com/2011/06/01/get-the-public-dropbox-links-of-several-files/
+    Show the public Dropbox link(s) of one (or several) file(s).
+    Usage: get_public_link <file> | -a
+
 dropbox_permissions.py
     Website: https://ubuntuincident.wordpress.com/2011/05/08/setting-file-permissions-in-your-dropbox-folder-recursively/
     Set directory/file permissions in your Dropbox folder in an intelligent way.

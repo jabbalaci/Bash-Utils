@@ -33,16 +33,77 @@ import glob
 from optparse import OptionParser
 from datetime import datetime
 from time import sleep
+from random import shuffle
 
 
-MUSIC_DIR = '/home/jabba/bin/alarm/at_a_given_time/assets/rock'
-MEDIA_PLAYER = '/usr/bin/mplayer'
+MUSIC_DIR = '/media/XMAS/mp3.alarm'
+TRAVERSE_RECURSIVELY = True
+MPLAYER = '/usr/bin/mplayer'
+MPLAYER_OPTIONS = '-endpos 00:00:60'    # play first 60 seconds; disabled when -p is used
 DEFAULT_TIME = '6h55'
 
 
+class CollectMp3:
+    """Collect music files recursively in a given directory."""
+    def __init__(self, music_dir):
+        self.music_dir = music_dir
+        self.songs = []
+
+
+    def traverse(self, directory):
+        """Traverse directory recursively. Symlinks are skipped."""
+        content = [os.path.join(directory, x) for x in os.listdir(directory)]
+        dirs = sorted([x for x in content if os.path.isdir(x)])
+        files = sorted([x for x in content if os.path.isfile(x)])
+
+        for f in files:
+            if os.path.islink(f):
+                continue
+            ext = os.path.splitext(f)[1]
+            if ext in ('.mp3', '.flac', '.ogg', '.flv'):
+                self.songs.append(f)
+
+        if TRAVERSE_RECURSIVELY:
+            for d in dirs:
+                if os.path.islink(d):
+                    continue
+                self.traverse(d)        
+
+
+    def collect(self):
+        """Collect songs, shuffle order, and print a little statistics."""
+        self.traverse(self.music_dir)
+        if self.get_number_of_songs() == 0:
+            print "Error: there are no songs available."
+            sys.exit(-1)
+        # else
+        shuffle(self.songs)
+        header = "number of songs: {0}".format(self.get_number_of_songs())
+        sep = '#' * (len(header) + 2 + 2)
+        print sep
+        print '# ' + header + ' #'
+        print sep
+        print
+
+
+    def get_number_of_songs(self):
+        return len(self.songs)
+
+    
+    def get_songs(self):
+        return self.songs
+
+
+collector = CollectMp3(MUSIC_DIR)
+
+
+#############################################################################
+
+
 def play_music():
-    for f in sorted(glob.glob(os.path.join(MUSIC_DIR, '*.mp3'))):
-        val = os.system("{0} \"{1}\"".format(MEDIA_PLAYER, f))
+    songs = collector.get_songs()
+    for f in songs:
+        val = os.system("{mplayer} {options} \"{song}\"".format(mplayer=MPLAYER, options=MPLAYER_OPTIONS, song=f))
         if val == 2:    # interrupted with CTRL-C
             sys.exit(val)
 
@@ -114,8 +175,14 @@ def main(default=DEFAULT_TIME):
                       help = 'Play music. Useful for adjusting the volume.')
 
     options, arguments = parser.parse_args()
-    #print options
-    #print arguments
+
+    if options.is_play:
+        global MPLAYER_OPTIONS
+        MPLAYER_OPTIONS = ''
+        print '# MPLAYER_OPTIONS is disabled'
+
+    collector.collect()
+    
     if options.is_play:
         play_music()    # play and
         sys.exit(0)     # quit

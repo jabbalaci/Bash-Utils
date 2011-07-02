@@ -7,7 +7,7 @@ Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Github:  https://github.com/jabbalaci/Bash-Utils
 
 replace_accents/
-    Website: ...
+    Website: https://ubuntuincident.wordpress.com/2011/07/01/replace-accents-for-latex/
     Here you find two scripts for replacing accents for LaTeX.
     (1) replace_latex_accents.pl
         This script allows you to write special Hungarian and French characters in a simple way

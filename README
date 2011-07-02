@@ -6,13 +6,24 @@ Here I collect some small command-line utils.
 Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Github:  https://github.com/jabbalaci/Bash-Utils
 
+replace_accents/
+    Website: ...
+    Here you find two scripts for replacing accents for LaTeX.
+    (1) replace_latex_accents.pl
+        This script allows you to write special Hungarian and French characters in a simple way
+        (using the ISO-8859-1 (Latin-1) charset), then convert them to their LaTeX-equivalents.
+        Example: La'szlo'  =>  L\'{a}szl\'{o}
+    (2) replace_french_accents_to_latex.pl
+        This script converts a French accented text to LaTeX replacing the funny characters
+        with their LaTeX equivalents.
+        Example: é  =>  \'{e}
 
 get_public_link.py
     Website: https://ubuntuincident.wordpress.com/2011/06/01/get-the-public-dropbox-links-of-several-files/
     Show the public Dropbox link(s) of one (or several) file(s).
     Usage: get_public_link <file> | -a
 
-dropbox_permissions.py
+dropbox/dropbox_permissions.py
     Website: https://ubuntuincident.wordpress.com/2011/05/08/setting-file-permissions-in-your-dropbox-folder-recursively/
     Set directory/file permissions in your Dropbox folder in an intelligent way.
     Intended audience: Linux users who also use Windows sometimes.

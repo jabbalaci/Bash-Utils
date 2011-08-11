@@ -6,6 +6,13 @@ Here I collect some small command-line utils.
 Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Github:  https://github.com/jabbalaci/Bash-Utils
 
+reddit/reddit_get_posts.py
+    Website: ...
+    This script can extract links to posts in a subreddit.
+    You can get links to comments (-c switch) or to direct URLs (-u switch).
+    Basic usage:    ./reddit_get_posts.py -c /r/earthporn
+    Advanced usage: ./reddit_get_posts.py -u /r/earthporn | open_in_tabs -s
+
 replace_accents/
     Website: https://ubuntuincident.wordpress.com/2011/07/01/replace-accents-for-latex/
     Here you find two scripts for replacing accents for LaTeX.

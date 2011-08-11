@@ -5,7 +5,7 @@ Reddit, get posts
 =================
 
 Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
-Website: ...
+Website: https://ubuntuincident.wordpress.com/2011/08/11/browse-your-favorite-subreddits-painlessly/
 GitHub:  https://github.com/jabbalaci/Bash-Utils
 
 This script can extract links to posts in a subreddit.

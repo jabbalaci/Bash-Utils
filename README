@@ -6,6 +6,12 @@ Here I collect some small command-line utils.
 Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Github:  https://github.com/jabbalaci/Bash-Utils
 
+reddit/reddit_get_all_pages.py
+    Website: https://ubuntuincident.wordpress.com/2011/08/27/browse-all-pages-of-a-subreddit/
+    This script allows you to browse all the older pages of a subreddit.
+    Limitation: since reddit.com lists only the last 1000 posts, the script will only list 40 pages.
+    Usage: ./reddit_get_all_pages.py
+
 reddit/reddit_get_posts.py
     Website: https://ubuntuincident.wordpress.com/2011/08/11/browse-your-favorite-subreddits-painlessly/
     This script can extract links to posts in a subreddit.

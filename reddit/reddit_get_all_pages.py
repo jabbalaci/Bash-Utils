@@ -5,7 +5,7 @@ Reddit, browse all pages of a subreddit
 =======================================
 
 Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
-Website: ...
+Website: https://ubuntuincident.wordpress.com/2011/08/27/browse-all-pages-of-a-subreddit/
 GitHub:  https://github.com/jabbalaci/Bash-Utils
 
 When you visit a subreddit on reddit.com, for instance

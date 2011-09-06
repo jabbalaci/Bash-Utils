@@ -6,6 +6,13 @@ Here I collect some small command-line utils.
 Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Github:  https://github.com/jabbalaci/Bash-Utils
 
+firefox/export_firefox_cookies.py
+   Website: https://ubuntuincident.wordpress.com/2011/09/05/download-pages-with-wget-that-are-protected-by-cookies/
+   Original script written by Dirk Sohler (https://old.0x7be.de/2008/06/19/firefox-3-und-cookiestxt/).
+   This script extracts cookies from Firefox's cookies.sqlite file hat are 
+   specific to a given host. The exported cookies are saved in the file cookies.txt.
+   Usage: ./export_firefox_cookies.py <host>
+
 reddit/reddit_get_all_pages.py
     Website: https://ubuntuincident.wordpress.com/2011/08/27/browse-all-pages-of-a-subreddit/
     This script allows you to browse all the older pages of a subreddit.

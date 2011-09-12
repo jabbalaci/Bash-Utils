@@ -6,6 +6,12 @@ Here I collect some small command-line utils.
 Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Github:  https://github.com/jabbalaci/Bash-Utils
 
+mouse/mousepos_gui.py
+   Website: ...
+   Monitor the mouse position in real-time. 
+   I made it to facilitate the usage of autopy (http://www.autopy.org).
+   Usage: ./mousepos_gui.py
+
 firefox/export_firefox_cookies.py
    Website: https://ubuntuincident.wordpress.com/2011/09/05/download-pages-with-wget-that-are-protected-by-cookies/
    Original script written by Dirk Sohler (https://old.0x7be.de/2008/06/19/firefox-3-und-cookiestxt/).

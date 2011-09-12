@@ -7,7 +7,7 @@ Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Github:  https://github.com/jabbalaci/Bash-Utils
 
 mouse/mousepos_gui.py
-   Website: ...
+   Website: https://ubuntuincident.wordpress.com/2011/09/11/gui-to-monitor-mouse/
    Monitor the mouse position in real-time. 
    I made it to facilitate the usage of autopy (http://www.autopy.org).
    Usage: ./mousepos_gui.py

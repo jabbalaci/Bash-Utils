@@ -31,9 +31,9 @@ def mousepos():
 
 
 class MouseThread(threading.Thread):
-    def __init__(self, parent, label):
+    def __init__(self, parent):
         threading.Thread.__init__(self)
-        self.label = label
+        self.parent = parent
         self.killed = False
 
     def run(self):
@@ -42,7 +42,8 @@ class MouseThread(threading.Thread):
                 if self.stopped():
                     break
                 text = "{0}".format(mousepos())
-                self.label.set_text(text)
+                self.parent.label.set_text(text)
+                self.parent.set_title(text)
                 sleep(0.05)
         except (KeyboardInterrupt, SystemExit):
             sys.exit()
@@ -59,18 +60,18 @@ class PyApp(gtk.Window):
     def __init__(self):
         super(PyApp, self).__init__()
         
-        self.set_title("Mouse coordinates 0.1")
+        #self.set_title("Mouse coordinates 0.1")
         self.set_size_request(250, 50)
         self.set_position(gtk.WIN_POS_CENTER)
         self.connect("destroy", self.quit)
 
-        label = gtk.Label()
+        self.label = gtk.Label()
 
-        self.mouseThread = MouseThread(self, label)
+        self.mouseThread = MouseThread(self)
         self.mouseThread.start()
 
         fixed = gtk.Fixed()
-        fixed.put(label, 10, 10)
+        fixed.put(self.label, 10, 10)
 
         self.add(fixed)
         self.show_all()

@@ -26,6 +26,8 @@ def read_data():
 
 def print_list(li):
     """Print station list to user."""
+    print "Jabba's Minimalistic Radio Player :)"
+    print
     for index,e in enumerate(li):
         pos = index + 1
         print "({pos}) {id:20}[{url}]".format(pos=pos, id=e[0], url=e[1])

@@ -1,5 +1,7 @@
 id;stream;homepage
 slay;http://relay1.slayradio.org:8000/;http://www.slayradio.org/home.php
+kossuth;http://stream002.radio.hu/mr1.mp3;http://www.mr1-kossuth.hu/
+maria;http://www.mariaradio.hu:8000/mr;http://www.mariaradio.hu
 goa;http://scfire-ntc-aa01.stream.aol.com:80/stream/1008;http://www.di.fm/
 trance;http://scfire-ntc-aa01.stream.aol.com:80/stream/1003;http://www.di.fm/
 chillout;http://scfire-ntc-aa01.stream.aol.com:80/stream/1035;http://www.di.fm/

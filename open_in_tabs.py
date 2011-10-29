@@ -32,7 +32,7 @@ from time import sleep
 __version__ = '0.3.0'
 
 FIREFOX = webbrowser.get('firefox')
-FIREFOX_PROCESS = 'firefox-bin'         # look for it in the output of 'ps'
+FIREFOX_PROCESS = 'firefox'         # look for it in the output of 'ps'
 FIREFOX_EXE = 'firefox'                 # Firefox executable
 DELAY = 3.0                             # seconds
 

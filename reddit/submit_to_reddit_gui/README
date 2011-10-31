@@ -1,0 +1,7 @@
+This is a GUI interface to send a link
+to reddit. Its interface is very similar to
+the official HTML interface.
+
+It works but I won't use it in the future.
+For batch upload, I will write some command-line
+scripts.

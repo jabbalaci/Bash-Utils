@@ -6,6 +6,12 @@ Here I collect some small command-line utils.
 Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Github:  https://github.com/jabbalaci/Bash-Utils
 
+
+redirect_to.py
+   Website: http://pythonadventures.wordpress.com/2010/12/21/where-does-a-page-redirect-to/
+   This script tells you where a webpage redirects.
+   Usage: ./redirect_to.py <URL>
+
 mouse/mousepos_gui.py
    Website: https://ubuntuincident.wordpress.com/2011/09/11/gui-to-monitor-mouse/
    Monitor the mouse position in real-time. 

@@ -3,7 +3,7 @@
 """
 Markdown previewer
 ==================
-Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
+Author:  Laszlo Szathmary, 2011--2012 (jabba.laci@gmail.com)
 Website: https://ubuntuincident.wordpress.com/2011/05/05/readme-markdown-on-github/
 GitHub:  https://github.com/jabbalaci/Bash-Utils
 
@@ -21,10 +21,12 @@ opened in the browser.
 import os
 import sys
 
-MARKDOWN = 'markdown'
-UPSKIRT = 'upskirt'
+MARKDOWN = 'markdown'   # /usr/bin/markdown
+SUNDOWN = 'sundown'     # https://github.com/tanoku/sundown
 
-PROGRAM = UPSKIRT
+BROWSER = 'chromium-browser'
+
+PROGRAM = SUNDOWN
 VERBOSE = True
 
 def main():
@@ -40,7 +42,7 @@ def main():
     input_file = sys.argv[1]
     os.system("{program} {input} > /tmp/markdown.html".format(program=PROGRAM, input=input_file))
     if not update:
-        os.system("chromium-browser /tmp/markdown.html &")
+        os.system("{browser} /tmp/markdown.html &".format(browser=BROWSER))
     if VERBOSE:
         print >>sys.stderr, "# renderer: {0}".format(PROGRAM)
 

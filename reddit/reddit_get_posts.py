@@ -42,6 +42,7 @@ your Firefox instance. Example:
     This will open the links simultaneously (-s switch) in Firefox.
 """
 
+import webbrowser
 import urlparse
 import urllib
 import json
@@ -77,7 +78,9 @@ def get_json_text():
 def process_post(index, post):
     # indexing starts with 1 (instead of 0):
     index += 1
-    print urlparse.urljoin(BASE, post['data'][WHAT_TO_GET])
+    url = urlparse.urljoin(BASE, post['data'][WHAT_TO_GET])
+    print url
+    webbrowser.open(url)
 
 
 def process_posts(decoded):

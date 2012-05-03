@@ -21,12 +21,12 @@ opened in the browser.
 import os
 import sys
 
-MARKDOWN = 'markdown'   # /usr/bin/markdown
+MARKDOWN = 'markdown'   # /usr/bin/markdown (sudo apt-get install markdown)
 SUNDOWN = 'sundown'     # https://github.com/tanoku/sundown
 
 BROWSER = 'chromium-browser'
 
-PROGRAM = SUNDOWN
+PROGRAM = MARKDOWN
 VERBOSE = True
 
 def main():

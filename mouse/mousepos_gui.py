@@ -67,7 +67,7 @@ class MouseThread(threading.Thread):
                     title += " | R: {0}".format((x-X_0, y-Y_0))
                 self.parent.label.set_text(text)
                 self.parent.set_title(title)
-                sleep(0.05)
+                sleep(0.5)
         except (KeyboardInterrupt, SystemExit):
             sys.exit()
 

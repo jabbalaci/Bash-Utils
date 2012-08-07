@@ -7,6 +7,11 @@ Author:  Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
 Github:  https://github.com/jabbalaci/Bash-Utils
 
 
+py2rtf.py
+   Website: http://ubuntuincident.wordpress.com/2012/08/07/insert-syntax-highlighted-source-in-powerpoint/
+   Transform a python source file to RTF.
+   Usage: ./py2rtf [-f] hello.py       # the output is written to hello.rtf
+
 redirect_to.py
    Website: http://pythonadventures.wordpress.com/2010/12/21/where-does-a-page-redirect-to/
    This script tells you where a webpage redirects.

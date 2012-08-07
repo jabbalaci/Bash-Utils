@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # Website: https://pythonadventures.wordpress.com/2011/03/05/copy-string-to-x-clipboards/
-# Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
+# Laszlo Szathmary, 2011--2012 (jabba.laci@gmail.com)
 #
 # Copy the text from the standard input to ALL clipboards. Thus, you can use 
 # any paste method to insert your text (middle mouse button or Shift+Insert).
@@ -26,5 +26,6 @@ def text_to_clipboards(text):
 
 #############################################################################
 
-stuff = sys.stdin.read()
-text_to_clipboards(stuff)
+if __name__ == "__main__":
+    stuff = sys.stdin.read()
+    text_to_clipboards(stuff)

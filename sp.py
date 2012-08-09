@@ -21,6 +21,7 @@ if len(sys.argv) == 1:
 else:
     text = os.path.join(os.getcwd(), sys.argv[1])
 
+text = text.replace(' ', r'\ ')
 print '# copied to the clipboard'
 print text
 text_to_clipboards(text)

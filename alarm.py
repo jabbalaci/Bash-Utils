@@ -17,18 +17,17 @@ Usage:
 ./alarm.py -p
     Play music. First do this to adjust volume! If the volume is low,
     you won't hear it in the morning.
-    
+
 ./alarm.py -t 7h15
     Set alarm time. The format is HhM, where H is the hour (24-hour system),
     M is the minute, 'h' is the separator.
-    
+
 ./alarm.py
     Set alarm with the default time. In my case it's 6h55.
 """
 
 import os
 import sys
-import glob
 
 from optparse import OptionParser
 from datetime import datetime
@@ -49,7 +48,6 @@ class CollectMp3:
         self.music_dir = music_dir
         self.songs = []
 
-
     def traverse(self, directory):
         """Traverse directory recursively. Symlinks are skipped."""
         content = [os.path.join(directory, x) for x in os.listdir(directory)]
@@ -67,8 +65,7 @@ class CollectMp3:
             for d in dirs:
                 if os.path.islink(d):
                     continue
-                self.traverse(d)        
-
+                self.traverse(d)
 
     def collect(self):
         """Collect songs, shuffle order, and print a little statistics."""
@@ -85,17 +82,14 @@ class CollectMp3:
         print sep
         print
 
-
     def get_number_of_songs(self):
         return len(self.songs)
 
-    
     def get_songs(self):
         return self.songs
 
 
 collector = CollectMp3(MUSIC_DIR)
-
 
 #############################################################################
 
@@ -107,8 +101,9 @@ def play_music():
         if val == 2:    # interrupted with CTRL-C
             sys.exit(val)
 
+
 def set_alarm(hour, minute):
-    # autoflush 
+    # autoflush
     sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
 
     sep = "=" * 19
@@ -145,7 +140,7 @@ def check_alarm(alarm_time):
             minute = '0'
         hour = int(hour)
         minute = int(minute)
-        if not ( (0 <= hour <= 23) and (0 <= minute <= 59) ):
+        if not ((0 <= hour <= 23) and (0 <= minute <= 59)):
             print >>sys.stderr, msg
             sys.exit(1)
     except ValueError:
@@ -172,7 +167,7 @@ def main(default=DEFAULT_TIME):
                       action='store_true',
                       default=False,
                       dest='is_play',
-                      help = 'Play music. Useful for adjusting the volume.')
+                      help='Play music. Useful for adjusting the volume.')
 
     options, arguments = parser.parse_args()
 
@@ -182,7 +177,7 @@ def main(default=DEFAULT_TIME):
         print '# MPLAYER_OPTIONS is disabled'
 
     collector.collect()
-    
+
     if options.is_play:
         play_music()    # play and
         sys.exit(0)     # quit

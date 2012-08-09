@@ -17,10 +17,10 @@ def read_data():
     li = []
     dic = {}
     with open(STATIONS, 'r') as f:
-        for index,line in enumerate(f):
+        for index, line in enumerate(f):
             li.append(line.rstrip("\n").split(';'))
             dic[li[-1][0]] = index
-            
+
     return li, dic
 
 
@@ -28,7 +28,7 @@ def print_list(li):
     """Print station list to user."""
     print "Jabba's Minimalistic Radio Player :)"
     print
-    for index,e in enumerate(li):
+    for index, e in enumerate(li):
         pos = index + 1
         print "({pos}) {id:20}[{url}]".format(pos=pos, id=e[0], url=e[1])
 
@@ -49,8 +49,8 @@ def read_choice(li, dic):
                 choice = int(choice)
         except ValueError:
             pass
-           
-        try: 
+
+        try:
             if isinstance(choice, int) and choice > 0:
                 record = li[choice]
             elif isinstance(choice, str):
@@ -59,13 +59,13 @@ def read_choice(li, dic):
             pass
         except KeyError:
             pass
-            
+
         if record:
             break
-        
+
     return record
-            
-                      
+
+
 def play_record(record):
     """Play station URL with mplayer."""
     station_url = record[1]
@@ -80,9 +80,7 @@ def main():
     record = read_choice(li, dic)
     play_record(record)
 
-
 #############################################################################
-
 
 if __name__ == "__main__":
     main()

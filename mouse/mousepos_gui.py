@@ -4,11 +4,11 @@
 Monitor the mouse position.
 
 NEW
-=== 
+===
 
-A new coordinate system can be defined in settings.json. 
+A new coordinate system can be defined in settings.json.
 Then the script shows the absolute position (from the top left
-corner), and the relative position too (from the new coordinate 
+corner), and the relative position too (from the new coordinate
 system).
 """
 
@@ -18,7 +18,7 @@ import os
 from time import sleep
 
 import gtk
-gtk.gdk.threads_init() #@UndefinedVariable
+gtk.gdk.threads_init()
 
 import threading
 
@@ -29,7 +29,7 @@ from Xlib import display
 
 # By default, the position (0,0) is in the top left corner.
 # However, you might want to re-position the coordinate
-# system to somewhere else. X_0 and Y_0 marks the point (0,0) 
+# system to somewhere else. X_0 and Y_0 marks the point (0,0)
 # of this relative coordinate system.
 import json
 X_0 = 0  # to be read from settings.json
@@ -44,7 +44,7 @@ def mousepos():
     # that's why stdout is redirected temporarily to /dev/null
     data = display.Display().screen().root.query_pointer()._data
     sys.stdout = old_stdout
-    
+
     return data["root_x"], data["root_y"]
 
 
@@ -60,11 +60,11 @@ class MouseThread(threading.Thread):
                 if self.stopped():
                     break
                 x, y = mousepos()
-                text = "Abs: {0}".format((x,y))
-                title = "A: {0}".format((x,y))
+                text = "Abs: {0}".format((x, y))
+                title = "A: {0}".format((x, y))
                 if X_0 and Y_0:
-                    text += " " * 15 + "Rel: {0}".format((x-X_0, y-Y_0))
-                    title += " | R: {0}".format((x-X_0, y-Y_0))
+                    text += " " * 15 + "Rel: {0}".format((x - X_0, y - Y_0))
+                    title += " | R: {0}".format((x - X_0, y - Y_0))
                 self.parent.label.set_text(text)
                 self.parent.set_title(title)
                 sleep(0.5)
@@ -82,7 +82,7 @@ class PyApp(gtk.Window):
 
     def __init__(self):
         super(PyApp, self).__init__()
-        
+
         #self.set_title("Mouse coordinates 0.1")
         self.set_keep_above(True)   # always on top
         self.set_size_request(300, 45)
@@ -107,11 +107,11 @@ class PyApp(gtk.Window):
 
 def read_settings():
     global X_0, Y_0
-    settings = None #@UnusedVariable
+    #
     try:
         with open('settings.json') as f:
-            settings = json.loads(f.read())
-        if settings.has_key('x_0') and settings.has_key('y_0'): 
+            settings = json.load(f)
+        if 'x_0' in settings and 'y_0' in settings:
             X_0 = settings['x_0']
             Y_0 = settings['y_0']
     except IOError:

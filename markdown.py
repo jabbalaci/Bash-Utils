@@ -11,10 +11,10 @@ Preview markdown files.
 
 Usage:
 ------
-Put it in your ~/bin directory (make sure ~/bin is in your PATH), 
-make it executable (chmod u+x ~/bin/markdown.py), and call it as 
-"markdown.py README.markdown". It will open the HTML output in a 
-new browser tab. Adding the "-u" switch (update), the HTML is not 
+Put it in your ~/bin directory (make sure ~/bin is in your PATH),
+make it executable (chmod u+x ~/bin/markdown.py), and call it as
+"markdown.py README.markdown". It will open the HTML output in a
+new browser tab. Adding the "-u" switch (update), the HTML is not
 opened in the browser.
 """
 
@@ -28,6 +28,7 @@ BROWSER = 'chromium-browser'
 
 PROGRAM = MARKDOWN
 VERBOSE = True
+
 
 def main():
     update = False

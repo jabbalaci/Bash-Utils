@@ -5,15 +5,17 @@ import os
 CREDENTIALS = '{home}/secret/reddit/credentials.txt'.format(home=os.path.expanduser('~'))
 LATEST_SUBREDDIT = '{home}/secret/reddit/latest_subreddit.txt'.format(home=os.path.expanduser('~'))
 
+
 def read_credentials():
     f = open(CREDENTIALS, 'r')
     user = f.readline().rstrip('\n')
     passwd = f.readline().rstrip('\n')
     f.close()
-    
+
     return user, passwd
 
 USERNAME, PASSWORD = read_credentials()
+
 
 def get_latest_subreddit():
     try:
@@ -22,8 +24,9 @@ def get_latest_subreddit():
         f.close()
     except IOError:
         return ''
-    
+
     return text
+
 
 def set_latest_subreddit(text):
     f = open(LATEST_SUBREDDIT, 'w')

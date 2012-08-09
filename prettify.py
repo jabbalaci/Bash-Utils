@@ -2,7 +2,7 @@
 
 # Website: https://pythonadventures.wordpress.com/2011/04/03/prettify-html-with-beautifulsoup/
 # Laszlo Szathmary, 2011 (jabba.laci@gmail.com)
-# 
+#
 # Prettify an HTML page. The script prints the HTML source
 # that is built by BeautifulSoup (BS).
 # Idea: if you want to manipulate a page with BS, analyze
@@ -15,8 +15,10 @@ import sys
 import urllib
 from BeautifulSoup import BeautifulSoup
 
+
 class MyOpener(urllib.FancyURLopener):
     version = 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15'
+
 
 def process(url):
     myopener = MyOpener()
@@ -29,6 +31,7 @@ def process(url):
     soup = BeautifulSoup(text)
     return soup.prettify()
 # process(url)
+
 
 def main():
     if len(sys.argv) == 1:

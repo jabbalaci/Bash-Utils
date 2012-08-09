@@ -55,20 +55,20 @@ class HtmlWriter:
         self.file = open(OUTPUT_FILE, 'w')
         self.add_header()
         print >>self.file, "<h2>{reddit}</h2>".format(reddit=REDDIT)
-        
+
     def close(self):
         self.add_footer()
         self.file.close()
         print >>sys.stderr, "# the output was written to {out}".format(out=OUTPUT_FILE)
-        
+
     def add(self, page, url):
         link = '<a href="{url}">{page}</a>'.format(url=url, page=page)
         print >>self.file, "[{link}] ".format(link=link)
-        
+
     def add_header(self):
         print >>self.file, "<html>"
         print >>self.file, "<body>"
-        
+
     def add_footer(self):
         print >>self.file, "</body>"
         print >>self.file, "</html>"
@@ -90,9 +90,9 @@ def get_json_text(reddit):
 
 def find_all_pages(reddit):
     global page_cnt
-    
+
     html = HtmlWriter()
-    
+
     while True:
         json_url = add_json(reddit)
         json_text = get_json_text(json_url)
@@ -106,7 +106,7 @@ def find_all_pages(reddit):
         name = last_post['data']['name']
         reddit = "{R}/?count=25&after={name}".format(R=REDDIT, name=name)
         page_cnt += 1
-        
+
     html.close()
 
 
@@ -115,5 +115,5 @@ def main():
     webbrowser.open(OUTPUT_FILE)
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     main()

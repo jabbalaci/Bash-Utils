@@ -16,7 +16,7 @@ cat url_list.txt | ./open_in_tabs.py
 Options:
   -n, --new-window      Open URLs in a new browser window.
   -s, --simultaneously  Open URLs simultaneously.
-  
+
 Warning! The combination -ns is experimental!
 """
 
@@ -40,8 +40,8 @@ DELAY = 3.0                             # seconds
 def is_firefox_running():
     output = commands.getoutput('ps ux')
     return FIREFOX_PROCESS in output
-    
-    
+
+
 def open_in_new_window(url, options, arguments):
     if options.simultaneously:
         command = "{0} -new-window {1}".format(FIREFOX_EXE, url)
@@ -49,15 +49,15 @@ def open_in_new_window(url, options, arguments):
         sleep(DELAY)
     else:
         FIREFOX.open_new(url)
-    
-    
+
+
 def open_in_new_tab(url, options, arguments):
     if options.simultaneously:
         command = "{0} -new-tab {1}".format(FIREFOX_EXE, url)
         call(shlex.split(command))
     else:
         FIREFOX.open_new_tab(url)
-        
+
 
 def main():
     parser = OptionParser(usage='%prog [options]', version=__version__)
@@ -75,12 +75,12 @@ def main():
                       help='Open URLs simultaneously.')
 
     options, arguments = parser.parse_args()
-    
+
     if options.new_window and options.simultaneously:
         print >>sys.stderr, \
             "# {0}: this combination is experimental.".format(sys.argv[0])
         #sys.exit(2)
-    
+
     if not is_firefox_running():
         print >>sys.stderr, \
             "{0}: error: firefox is not running.".format(sys.argv[0])
@@ -98,7 +98,7 @@ def main():
                 open_in_new_tab(url, options, arguments)
         else:
             open_in_new_tab(url, options, arguments)
-    
+
     return 0
 
 if __name__ == '__main__':

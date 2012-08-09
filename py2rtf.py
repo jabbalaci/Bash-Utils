@@ -10,7 +10,7 @@ GitHub:  https://github.com/jabbalaci/Bash-Utils
 
 Transform a python source file to RTF.
 
-What is it good for? 
+What is it good for?
 --------------------
 
 You can open the RTF in Word, select it,
@@ -30,7 +30,7 @@ import sys
 
 def process(args):
     """
-    Check arguments, then call pygmentize with the 
+    Check arguments, then call pygmentize with the
     appropriate parameters.
     """
     force = '-f' in args

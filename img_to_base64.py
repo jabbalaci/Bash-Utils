@@ -18,7 +18,7 @@ Usage:
     By default, the data is nested in an HTML tag and the output
     is wrapped. These settings can be customized.
     The output is printed to the standard output.
-    
+
 Sample output:
 --------------
 
@@ -36,40 +36,41 @@ import textwrap
 
 # you can change the 'class' attribute or you can add more attributes
 TEMPLATE = "<img class='inline-image'" + \
-           " src='data:image/{0};base64,{1}' />";
+           " src='data:image/{0};base64,{1}' />"
 
 # format options
-HTML=1          # one line, nested in TEMPLATE
+HTML = 1        # one line, nested in TEMPLATE
 BASE64 = 2      # one line, pure base64 encoded output
 HTML_WRAP = 3   # wrapped HTML output, nested in TEMPLATE
 
 # width fot text wrap
 HTML_WRAP_WIDTH = 79
 
+
 def convert_to_base64(filename, image_type, format=HTML):
     """Read the image file and encode it with base64.
-    
+
     Return the image file either in an HTML img tag or as plain base64 text.
     """
     img = open(filename, 'rb')
-    data = base64.b64encode( img.read() )
+    data = base64.b64encode(img.read())
     img.close()
-           
+
     if format in [HTML, HTML_WRAP]:
         text = TEMPLATE.format(image_type, data)
         if format == HTML_WRAP:
-            text = '\n'.join( textwrap.wrap(text, HTML_WRAP_WIDTH) )
+            text = '\n'.join(textwrap.wrap(text, HTML_WRAP_WIDTH))
         return text
     # else
     if format == BASE64:
         return data
     # else
     return ''
-    
+
 
 def main(args):
     """Verify the format of the input file and print the base64 encoded text.
-    
+
     Supported file formats: 'png' and 'jpeg'.
     """
     filename = args[0]
@@ -80,7 +81,7 @@ def main(args):
         sys.exit(1)
     # else
     print convert_to_base64(filename, image_type, format=HTML_WRAP)
-    
+
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:

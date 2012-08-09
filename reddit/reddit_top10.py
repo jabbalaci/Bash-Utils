@@ -45,7 +45,7 @@ class HtmlWriter:
         if not LIMIT_TOP:
             LIMIT_TOP = len(posts.posts)
 
-        for index,p in enumerate(posts.posts[:LIMIT_TOP]):
+        for index, p in enumerate(posts.posts[:LIMIT_TOP]):
             pos = index + 1
             print '<tr>'
             print '<td><center>{pos}</center></td>'.format(pos=pos)
@@ -62,25 +62,25 @@ class HtmlWriter:
 
     def close_table(self):
         print '</table>'
-        
+
     def close(self):
         self.add_footer()
 
         self.f.close()
         sys.stdout = self.old_stdout
         print >>sys.stderr, "# the output was written to {out}".format(out=OUTPUT_FILE)
-        
+
     def add(self, page, url):
         link = '<a href="{url}">{page}</a>'.format(url=url, page=page)
         print "[{link}] ".format(link=link)
-        
+
     def add_header(self):
         print """<html>
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 </head>
 <body bgcolor="{c}">""".format(c=BODY_BGCOLOR)
-        
+
     def add_footer(self):
         print "</body>"
         print "</html>"
@@ -99,7 +99,6 @@ class Posts:
     def show(self):
         for post in self.posts[:LIMIT_TOP]:
             print post
-
 
 
 class Post:
@@ -123,7 +122,6 @@ class Post:
         return '{y}.{m:02d}.{d:02d}.'.format(y=stime[0], m=stime[1], d=stime[2])
 
 
-
 def add_json(reddit):
     reddit = reddit.replace('/?', '/.json?')
     if '/.json' not in reddit:
@@ -140,7 +138,7 @@ def get_json_text(reddit):
 
 def traverse_pages(reddit, posts):
     page_cnt = 1
-    
+
     while True:
         if LIMIT_PAGES and page_cnt > LIMIT_PAGES:
             break
@@ -166,7 +164,7 @@ def traverse_pages(reddit, posts):
 def main():
     posts = Posts()
     html = HtmlWriter()
-    
+
     posts = traverse_pages(REDDIT, posts)
 
     posts.sort()
@@ -175,5 +173,5 @@ def main():
     webbrowser.open(OUTPUT_FILE)
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     main()

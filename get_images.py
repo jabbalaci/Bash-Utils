@@ -46,7 +46,7 @@ def process(url, options):
     soup = BeautifulSoup(text)
 
     for tag in soup.findAll('img', src=True):
-        image_url  = urlparse.urljoin(url, tag['src'])
+        image_url = urlparse.urljoin(url, tag['src'])
         image_info = get_url_info(image_url)
         print image_url,
         if options.length:
@@ -57,14 +57,14 @@ def process(url, options):
 
 def main():
     parser = OptionParser(usage='%prog URL [URL]... [options]')
-    
+
     #[options]
     parser.add_option('-l',
                       '--length',
                       action='store_true',
                       default=False,
                       help='Show lengths of images.')
-    
+
     options, arguments = parser.parse_args()
 
     if not arguments:

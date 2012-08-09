@@ -9,7 +9,7 @@ Website: https://ubuntuincident.wordpress.com/2011/08/11/browse-your-favorite-su
 GitHub:  https://github.com/jabbalaci/Bash-Utils
 
 This script can extract links to posts in a subreddit.
-You can get links to comments (-c switch) or 
+You can get links to comments (-c switch) or
 to direct URLs (-u switch).
 
 Basic usage:
@@ -85,7 +85,7 @@ def process_post(index, post):
 
 def process_posts(decoded):
     posts = decoded['data']['children']
-    for i,post in enumerate(posts):
+    for i, post in enumerate(posts):
         process_post(i, post)
 
 
@@ -157,6 +157,5 @@ def main():
     process_posts(decoded)
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     main()
-

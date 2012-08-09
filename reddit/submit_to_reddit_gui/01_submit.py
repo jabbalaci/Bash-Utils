@@ -12,10 +12,10 @@ def create(parent):
     return Frame1(parent)
 
 
-[wxID_FRAME1, wxID_FRAME1BUTTON1, wxID_FRAME1BUTTON2, wxID_FRAME1BUTTON3, 
- wxID_FRAME1BUTTON4, wxID_FRAME1PANEL1, wxID_FRAME1STATICLINE1, 
- wxID_FRAME1STATICTEXT1, wxID_FRAME1STATICTEXT2, wxID_FRAME1STATICTEXT3, 
- wxID_FRAME1TEXTCTRL1, wxID_FRAME1TEXTCTRL2, wxID_FRAME1TEXTCTRL3, 
+[wxID_FRAME1, wxID_FRAME1BUTTON1, wxID_FRAME1BUTTON2, wxID_FRAME1BUTTON3,
+ wxID_FRAME1BUTTON4, wxID_FRAME1PANEL1, wxID_FRAME1STATICLINE1,
+ wxID_FRAME1STATICTEXT1, wxID_FRAME1STATICTEXT2, wxID_FRAME1STATICTEXT3,
+ wxID_FRAME1TEXTCTRL1, wxID_FRAME1TEXTCTRL2, wxID_FRAME1TEXTCTRL3,
  wxID_FRAME1TEXTCTRL4, wxID_FRAME1BUTTON5, wxID_FRAME1BUTTON6,
 ] = [wx.NewId() for _init_ctrls in range(16)]
 
@@ -30,12 +30,12 @@ def get_clipboard_data():
             return do.GetText()
         else:
             return ''
-        
+
 
 def submit_to_reddit(title, url, subreddit):
     r = reddit.Reddit(user_agent="submit to reddit script")
     r.login(user=cfg.USERNAME, password=cfg.PASSWORD)
-    
+
     return r.submit(subreddit, url, title)
 
 
@@ -60,13 +60,13 @@ class Frame1(wx.Frame):
         self.textCtrl1 = wx.TextCtrl(id=wxID_FRAME1TEXTCTRL1, name='textCtrl1',
               parent=self.panel1, pos=wx.Point(32, 64), size=wx.Size(424, 27),
               style=0, value='')
-        
+
         self.button5 = wx.Button(id=wxID_FRAME1BUTTON5, label=u'paste',
               name='button5', parent=self.panel1, pos=wx.Point(495, 64),
               size=wx.Size(85, 29), style=0)
         self.button5.Bind(wx.EVT_BUTTON, self.OnButton5Button,
               id=wxID_FRAME1BUTTON5)
-        
+
         self.button6 = wx.Button(id=wxID_FRAME1BUTTON6, label='clear',
               name='button6', parent=self.panel1, pos=wx.Point(495, 104),
               size=wx.Size(85, 29), style=0)
@@ -108,7 +108,7 @@ class Frame1(wx.Frame):
 
         self.textCtrl4 = wx.TextCtrl(id=wxID_FRAME1TEXTCTRL4, name='textCtrl4',
               parent=self.panel1, pos=wx.Point(32, 440), size=wx.Size(544, 136),
-              style=wx.TE_MULTILINE|wx.TE_READONLY, value='')
+              style=wx.TE_MULTILINE | wx.TE_READONLY, value='')
         self.textCtrl4.SetEditable(False)
 
         self.staticLine1 = wx.StaticLine(id=wxID_FRAME1STATICLINE1,
@@ -133,7 +133,7 @@ class Frame1(wx.Frame):
     def OnButton1Button(self, event):
         self.textCtrl2.SetValue(get_clipboard_data())
         event.Skip()
-        
+
     def OnButton5Button(self, event):
         self.textCtrl1.SetValue(get_clipboard_data())
         event.Skip()
@@ -141,17 +141,17 @@ class Frame1(wx.Frame):
     def OnButton3Button(self, event):
         self.textCtrl2.SetValue('')
         event.Skip()
-        
+
     def OnButton6Button(self, event):
         self.textCtrl1.SetValue('')
         event.Skip()
-        
+
     def get_title(self):
         return self.textCtrl1.GetValue().strip()
-    
+
     def get_url(self):
         return self.textCtrl2.GetValue().strip()
-    
+
     def get_subreddit(self):
         return self.textCtrl3.GetValue().strip()
 
@@ -167,7 +167,7 @@ class Frame1(wx.Frame):
             self.textCtrl4.AppendText('\n')
             self.textCtrl4.AppendText(str(result) + '\n')
             cfg.set_latest_subreddit(subreddit)
-            
+
         event.Skip()
 
     def OnButton4Button(self, event):
@@ -184,4 +184,3 @@ if __name__ == '__main__':
     frame.Show()
 
     app.MainLoop()
-

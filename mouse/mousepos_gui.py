@@ -18,7 +18,7 @@ import os
 from time import sleep
 
 import gtk
-gtk.gdk.threads_init()
+gtk.gdk.threads_init() #@UndefinedVariable
 
 import threading
 

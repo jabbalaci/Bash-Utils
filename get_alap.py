@@ -6,6 +6,19 @@ import shutil
 
 CWD = os.getcwd()
 TEMPLATES = os.path.abspath(os.path.dirname(sys.argv[0])) + '/' + 'templates'
+EXECUTABLE = ['py', 'd']
+
+
+def rename(fname):
+    dirName, fileName = os.path.split(fname)
+    fileExt = os.path.splitext(fileName)[1]
+    #
+    reply = raw_input("New name of the file (without extension) [ENTER to cancel]: ")
+    if reply:
+        to_name = dirName + '/' + reply + fileExt
+        os.rename(fname, to_name)
+        if os.path.isfile(to_name):
+            print '# renamed to', os.path.split(to_name)[1]
 
 
 def copy(ext, full_name=None):
@@ -18,13 +31,17 @@ def copy(ext, full_name=None):
         print >>sys.stderr, 'Warning: {} already exists in the current directory.'.format(source)
         sys.exit(1)
     # else
-    shutil.copyfile(TEMPLATES + '/' + source, CWD + '/' + source)
-    if os.path.isfile(CWD + '/' + source):
+    dest = CWD + '/' + source
+    shutil.copyfile(TEMPLATES + '/' + source, dest)
+    if os.path.isfile(dest):
         print '# {} is created'.format(source)
-        return 0    # OK
+        if ext in EXECUTABLE:
+            os.chmod(dest, 0700)
     else:
         print "Warning: couldn't copy {}.".format(source)
-        return 1    # problem
+        sys.exit(1)    # problem
+        
+    rename(dest)
 
 
 def main():
@@ -43,13 +60,17 @@ q) quit"""
             print
             ch = 'q'
         if ch in ['1', 'py']:
-            sys.exit(copy('py'))
+            copy('py')
+            break
         elif ch in ['2', 'c']:
-            sys.exit(copy('c'))
+            copy('c')
+            break
         elif ch in ['3', 'd']:
-            sys.exit(copy('d'))
+            copy('d')
+            break
         elif ch in ['4', 'java']:
-            sys.exit(copy('java', full_name='Alap.java'))
+            copy('java', full_name='Alap.java')
+            break
         elif ch == 'q':
             print 'bye.'
             sys.exit(0)

@@ -35,7 +35,7 @@ from time import sleep
 from random import shuffle
 
 
-MUSIC_DIR = '/media/XMAS/mp3.alarm'
+MUSIC_DIR = '/media/jabba/JIVE/mp3/sfa_scifi'
 TRAVERSE_RECURSIVELY = True
 MPLAYER = '/usr/bin/mplayer'
 MPLAYER_OPTIONS = '-endpos 00:00:60'    # play first 60 seconds; disabled when -p is used

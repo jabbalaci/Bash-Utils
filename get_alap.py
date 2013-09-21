@@ -7,18 +7,24 @@ import shutil
 CWD = os.getcwd()
 TEMPLATES = os.path.abspath(os.path.dirname(sys.argv[0])) + '/' + 'templates'
 EXECUTABLE = ['py', 'd']
+EDITOR = 'vim'
 
 
 def rename(fname):
     dirName, fileName = os.path.split(fname)
     fileExt = os.path.splitext(fileName)[1]
     #
-    reply = raw_input("New name of the file (without extension) [ENTER to cancel]: ")
+    reply = raw_input("New name of the file (without extension) [ENTER to cancel]: ").strip()
     if reply:
         to_name = dirName + '/' + reply + fileExt
         os.rename(fname, to_name)
         if os.path.isfile(to_name):
             print '# renamed to', os.path.split(to_name)[1]
+            return to_name
+        else:
+            return None
+    else:
+        return fname
 
 
 def copy(ext, full_name=None):
@@ -41,7 +47,13 @@ def copy(ext, full_name=None):
         print "Warning: couldn't copy {}.".format(source)
         sys.exit(1)    # problem
         
-    rename(dest)
+    return rename(dest)
+
+
+def edit(fname):
+    ch = raw_input("Do you want to edit the file [y/n] (default: y)? ").strip()
+    if ch=='y' or ch=='':
+        os.system('{ed} "{f}"'.format(ed=EDITOR, f=fname))
 
 
 def main():
@@ -60,16 +72,16 @@ q) quit"""
             print
             ch = 'q'
         if ch in ['1', 'py']:
-            copy('py')
+            return copy('py')
             break
         elif ch in ['2', 'c']:
-            copy('c')
+            return copy('c')
             break
         elif ch in ['3', 'd']:
-            copy('d')
+            return copy('d')
             break
         elif ch in ['4', 'java']:
-            copy('java', full_name='Alap.java')
+            return copy('java', full_name='Alap.java')
             break
         elif ch == 'q':
             print 'bye.'
@@ -80,4 +92,5 @@ q) quit"""
 #############################################################################
 
 if __name__ == "__main__":
-    main()
+    fname = main()
+    edit(fname)

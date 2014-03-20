@@ -121,3 +121,10 @@ tocb.py
     Copy the text from the standard input to ALL clipboards. Thus, you can use 
     any paste method to insert your text (middle mouse button or Shift+Insert).
     Usage: cat file.txt | tocb
+
+top10.py
+    "top 10 largest files"
+    Website: ...
+    Show the top 10 largest files in the current directory. Filesizes can be shown in
+    a human-readable format with the -h option.
+    Usage: top10 [-h]

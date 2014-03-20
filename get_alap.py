@@ -46,7 +46,7 @@ def copy(ext, full_name=None):
     else:
         print "Warning: couldn't copy {}.".format(source)
         sys.exit(1)    # problem
-        
+
     return rename(dest)
 
 
@@ -61,9 +61,10 @@ def main():
 Create an empty source file
 ---------------------------
 1) Python [py]
-2) C      [c]
-3) D      [d]
-4) Java   [java]
+2) Go     [go]
+3) Java   [java]
+4) C      [c]
+5) D      [d]
 q) quit"""
     while True:
         try:
@@ -74,14 +75,17 @@ q) quit"""
         if ch in ['1', 'py']:
             return copy('py')
             break
-        elif ch in ['2', 'c']:
+        elif ch in ['2', 'go']:
+            return copy('go')
+            break
+        elif ch in ['3', 'java']:
+            return copy('java', full_name='Alap.java')
+            break
+        elif ch in ['4', 'c']:
             return copy('c')
             break
-        elif ch in ['3', 'd']:
+        elif ch in ['5', 'd']:
             return copy('d')
-            break
-        elif ch in ['4', 'java']:
-            return copy('java', full_name='Alap.java')
             break
         elif ch == 'q':
             print 'bye.'

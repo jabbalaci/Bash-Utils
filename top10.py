@@ -20,6 +20,32 @@ Usage:
     # improved, human-readable output
     ./top10.py -h
 
+Samples:
+
+    /boot $ top10
+    17458360 ./initrd.img-3.11.0-18-generic
+    17456508 ./initrd.img-3.11.0-17-generic
+    17451581 ./initrd.img-3.11.0-15-generic
+    17303009 ./initrd.img-3.11.0-13-generic
+    17302636 ./initrd.img-3.11.0-14-generic
+    16397540 ./initrd.img-3.8.0-32-generic
+    5634192 ./vmlinuz-3.11.0-18-generic
+    5631792 ./vmlinuz-3.11.0-17-generic
+    5631120 ./vmlinuz-3.11.0-15-generic
+    5601072 ./vmlinuz-3.11.0-14-generic
+
+    /boot $ top10 -h
+    16.65M ./initrd.img-3.11.0-18-generic
+    16.65M ./initrd.img-3.11.0-17-generic
+    16.64M ./initrd.img-3.11.0-15-generic
+    16.50M ./initrd.img-3.11.0-13-generic
+    16.50M ./initrd.img-3.11.0-14-generic
+    15.64M ./initrd.img-3.8.0-32-generic
+    5.37M ./vmlinuz-3.11.0-18-generic
+    5.37M ./vmlinuz-3.11.0-17-generic
+    5.37M ./vmlinuz-3.11.0-15-generic
+    5.34M ./vmlinuz-3.11.0-14-generic
+
 Requires Python 3.
 """
 

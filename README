@@ -19,14 +19,14 @@ redirect_to.py
 
 mouse/mousepos_gui.py
    Website: https://ubuntuincident.wordpress.com/2011/09/11/gui-to-monitor-mouse/
-   Monitor the mouse position in real-time. 
+   Monitor the mouse position in real-time.
    I made it to facilitate the usage of autopy (http://www.autopy.org).
    Usage: ./mousepos_gui.py
 
 firefox/export_firefox_cookies.py
    Website: https://ubuntuincident.wordpress.com/2011/09/05/download-pages-with-wget-that-are-protected-by-cookies/
    Original script written by Dirk Sohler (https://old.0x7be.de/2008/06/19/firefox-3-und-cookiestxt/).
-   This script extracts cookies from Firefox's cookies.sqlite file hat are 
+   This script extracts cookies from Firefox's cookies.sqlite file hat are
    specific to a given host. The exported cookies are saved in the file cookies.txt.
    Usage: ./export_firefox_cookies.py <host>
 
@@ -79,7 +79,7 @@ open_in_tabs.py
     Website: https://ubuntuincident.wordpress.com/2011/03/09/open-urls-in-browser-tabs-simultaneously/
     Read URLs from the standard input and open them in separated tabs.
     Usage: cat url_list.txt | open_in_tabs
-    
+
 markdown.py
     Website: https://ubuntuincident.wordpress.com/2011/05/05/readme-markdown-on-github/
     Preview markdown files in a browser.
@@ -103,9 +103,9 @@ alarm.py
 prettify.py
     "prettify an HTML page"
     Website: https://pythonadventures.wordpress.com/2011/04/03/prettify-html-with-beautifulsoup/
-    The script prints the HTML source that is built 
+    The script prints the HTML source that is built
     by BeautifulSoup (BS).
-    Idea: if you want to manipulate a page with BS, analyze the prettified 
+    Idea: if you want to manipulate a page with BS, analyze the prettified
     source instead of the original because this is how BS stores it.
     Usage: prettify <URL>
 
@@ -118,7 +118,7 @@ sp.py
 tocb.py
     "to clipboard(s)"
     Website: https://pythonadventures.wordpress.com/2011/03/05/copy-string-to-x-clipboards/
-    Copy the text from the standard input to ALL clipboards. Thus, you can use 
+    Copy the text from the standard input to ALL clipboards. Thus, you can use
     any paste method to insert your text (middle mouse button or Shift+Insert).
     Usage: cat file.txt | tocb
 
@@ -128,3 +128,9 @@ top10.py
     Show the top 10 largest files in the current directory. Filesizes can be shown in
     a human-readable format with the -h option.
     Usage: top10 [-h]
+
+here.py
+    Print just the name of the current directory. For instance, if you are
+    in "/home/students/solo", then this script will print just "solo".
+    The output is also copied to the clipboard.
+    Usage: here

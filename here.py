@@ -17,12 +17,13 @@ from __future__ import (absolute_import, division,
                         print_function, unicode_literals)
 
 import os
+import sys
 from tocb import text_to_clipboards
 
 
 def main():
     text = os.path.split(os.getcwd())[1]
-    print('# copied to the clipboard')
+    print('# copied to the clipboard', file=sys.stderr)
     print(text)
     text_to_clipboards(text)
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Website: https://pythonadventures.wordpress.com/2011/03/05/copy-string-to-x-clipboards/
 # Laszlo Szathmary, 2011--2012 (jabba.laci@gmail.com)
@@ -18,6 +18,7 @@ import subprocess
 
 
 def text_to_clipboards(text):
+    text = str.encode(text)
     # "primary":
     xsel_proc = subprocess.Popen(['xsel', '-pi'], stdin=subprocess.PIPE)
     xsel_proc.communicate(text)

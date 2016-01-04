@@ -18,7 +18,7 @@ Usage: {0} [options]
 
 Options:
     -h, --help        this help
-    -1                read from primary clipboard
+    -1                read from primary clipboard (default)
     -2                read from secondary clipboard
 """.strip().format(sys.argv[0]))
 
@@ -39,8 +39,7 @@ def process_parameters(params):
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
-        print_help()
-        exit(0)
+        sys.argv.append("-1")    # default
     # else
     if '-h' in sys.argv or '--help' in sys.argv:
         print_help()

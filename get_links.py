@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 """
 Extract all links from a web page
@@ -18,7 +18,7 @@ import sys
 import urllib
 import urlparse
 
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 
 
 class MyOpener(urllib.FancyURLopener):
@@ -33,7 +33,7 @@ def process(url):
     text = page.read()
     page.close()
 
-    soup = BeautifulSoup(text)
+    soup = BeautifulSoup(text, "lxml")
 
     for tag in soup.findAll('a', href=True):
         tag['href'] = urlparse.urljoin(url, tag['href'])

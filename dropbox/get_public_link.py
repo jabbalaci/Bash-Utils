@@ -80,7 +80,7 @@ def get_short_fingerprint(length=6):
 # Your own Dropbox URL. No slash at the end.
 BASE_URL = 'http://dl.dropbox.com/u/144888'
 # Your own Dropbox/Public folder in the local file system. No slash at the end.
-if get_short_fingerprint() in ('a804db', '91d6c2'):
+if get_short_fingerprint() in ('a804db'):
     BASE_PATH = '/trash2/Dropbox/Public'
 else:
     BASE_PATH = '{home}/Dropbox/Public'.format(home=os.path.expanduser("~"))
@@ -166,3 +166,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    # print(get_short_fingerprint())

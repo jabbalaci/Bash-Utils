@@ -1,0 +1,7 @@
+Install these packages with your package manager
+------------------------------------------------
+
+Example: sudo apt-get install mplayer
+
+* mplayer
+* xsel

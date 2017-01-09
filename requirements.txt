@@ -1,6 +1,4 @@
 bs4
 lxml
-mplayer
-pygmentize
+pygments
 requests
-xsel

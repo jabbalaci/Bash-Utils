@@ -1,4 +1,4 @@
-Bash Utils (miscellaneous small utils for the bash shell)
+Bash Utils (miscellaneous small utils for the Bash shell)
 =========================================================
 
 **New (Jan 9, 2017)!** All scripts were updated to Python 3. The original Python 2 version (which is not maintained anymore) is tagged as "v0.1". You can find that
@@ -72,7 +72,7 @@ $ alarm -p
     Play music first to adjust volume.
 $ alarm -t 7h5
     Set alarm time (5 past 7 in this example).
-```        
+```
 * [blog post]( https://ubuntuincident.wordpress.com/2011/04/17/alarm-script/)
 
 cb.py

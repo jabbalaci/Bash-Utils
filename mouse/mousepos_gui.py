@@ -42,8 +42,11 @@ from Xlib import display
 # system to somewhere else. X_0 and Y_0 marks the point (0,0)
 # of this relative coordinate system.
 import json
+
 X_0 = 0  # to be read from settings.json
 Y_0 = 0  # to be read from settings.json
+
+WAIT = 0.3
 
 
 def mousepos():
@@ -77,7 +80,7 @@ class MouseThread(threading.Thread):
                     title += " | R: {0}".format((x - X_0, y - Y_0))
                 self.parent.label.set_text(text)
                 self.parent.set_title(title)
-                sleep(0.5)
+                sleep(WAIT)
         except (KeyboardInterrupt, SystemExit):
             sys.exit()
 

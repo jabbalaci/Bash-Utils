@@ -1,7 +1,7 @@
 Bash Utils (miscellaneous small utils for the bash shell)
 =========================================================
 
-**New!** All scripts were updated to Python 3. The original Python 2 version (which is not maintained anymore) is tagged as "v0.1".
+**New (Jan 9, 2017)!** All scripts were updated to Python 3. The original Python 2 version (which is not maintained anymore) is tagged as "v0.1".
 
 Here I collect some small command-line utils.
 
@@ -10,7 +10,7 @@ Here I collect some small command-line utils.
 
 dictionary/meaning.py
 ---------------------
-* Look up the meaning of a word
+* Look up the meaning of a word.
 * Usage: `meaning pen`
 * Meaning: what does the word `pen` mean?
 

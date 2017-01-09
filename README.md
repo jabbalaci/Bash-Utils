@@ -1,7 +1,8 @@
 Bash Utils (miscellaneous small utils for the bash shell)
 =========================================================
 
-**New (Jan 9, 2017)!** All scripts were updated to Python 3. The original Python 2 version (which is not maintained anymore) is tagged as "v0.1".
+**New (Jan 9, 2017)!** All scripts were updated to Python 3. The original Python 2 version (which is not maintained anymore) is tagged as "v0.1". You can find that
+under the "release" link.
 
 Here I collect some small command-line utils.
 
@@ -112,6 +113,11 @@ img_to_base64.py
 * Take an image file and encode it with BASE64. Put the encoded data in an "img" HTML tag.
 * Usage: `img_to_base64 <image_file>`
 * [blog post](https://ubuntuincident.wordpress.com/2011/04/17/embed-images-in-html-pages/)
+
+myip.py
+-------
+* My external IP address.
+* Usage: `myip`
 
 open_in_tabs.py
 ---------------

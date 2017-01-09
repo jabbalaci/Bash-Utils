@@ -1,5 +1,4 @@
-#!/usr/bin/env python2
-# encoding: utf-8
+#!/usr/bin/env python3
 
 """
 Get the public Dropbox links of several files
@@ -25,9 +24,6 @@ If you want to copy the links to the clipboard, combine it with tocb.py:
 get_public_link <file> | tocb
 """
 
-from __future__ import (absolute_import, division,
-                        print_function, unicode_literals)
-
 import hashlib
 import os
 import platform as p
@@ -41,7 +37,7 @@ def string_to_md5(content):
     """Calculate the md5 hash of a string.
 
     This 'string' can be the binary content of a file too."""
-    return hashlib.md5(content).hexdigest()
+    return hashlib.md5(content.encode("utf-8")).hexdigest()
 
 
 def get_fingerprint(md5=False):
@@ -135,10 +131,9 @@ def check_constants():
 
 def main():
     """Controller."""
-
     check_constants()
 
-    parser = OptionParser(usage='%prog <file> | -a')
+    parser = OptionParser(usage='%prog [<file> | -a]')
 
     parser.add_option('-a',
                       '--all',

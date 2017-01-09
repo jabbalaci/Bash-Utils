@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 Setting file permissions in your Dropbox folder recursively
@@ -9,13 +9,13 @@ Website: https://ubuntuincident.wordpress.com/2011/05/08/setting-file-permission
 GitHub:  https://github.com/jabbalaci/Bash-Utils (see the dropbox folder)
 
 This script will change permissions only if permissions are not
-correct. 
+correct.
 If we traverse our Dropbox folder recursively and set
 permissions everywhere, Dropbox will synchronize ALL the files!
 This script solves this problem by not modifying directories/files
 whose permissions are good.
 
-The Windows version of the Dropbox software regularly removes the 
+The Windows version of the Dropbox software regularly removes the
 executable flags. This script corrects that problem too.
 
 Intended audience:
@@ -27,6 +27,8 @@ Usage:
 Customize the header part, put the script in the root of your Dropbox
 folder and launch it. Set DRY to False if you want to apply the
 changes.
+
+Last update: 2017-01-08 (yyyy-mm-dd)
 """
 
 import os
@@ -59,9 +61,9 @@ changes = 0
 
 def chmod_ux(file):
     """Make a file executable.
-    
+
     Apply chmod u+x on the file."""
-    set_mode_to(file, 0700)
+    set_mode_to(file, 0o700)
 
 
 def set_mode_to(file, permissions):
@@ -72,26 +74,26 @@ def set_mode_to(file, permissions):
     if mode != oct(permissions):
         try:
             if DRY:
-                print "# chmod {0} {1}".format(oct(permissions), f)
+                print("# chmod {0} {1}".format(oct(permissions), f).replace("0o", ""))
             else:
                 os.chmod(f, permissions)
             changes += 1
         except OSError:
-            print >>sys.stderr, "# cannot chmod the file {0}".format(f)
+            print("# cannot chmod the file {0}".format(f), file=sys.stderr)
 
 
 def get_oct_mode(entry):
     """Get the permissions of an entry in octal mode.
-    
+
     The return value is a string (ex. '0600')."""
     entry_stat = os.stat(entry)
-    mode = oct(entry_stat[stat.ST_MODE] & 0777)
+    mode = oct(entry_stat[stat.ST_MODE] & 0o777)
     return mode
 
 
 def process_dir(directory):
     """Set the permissions of a directory."""
-    set_mode_to(directory, 0700)
+    set_mode_to(directory, 0o700)
 
 
 def process_file(file):
@@ -113,19 +115,19 @@ def process_exe_file(file):
 
 def process_other_file(file):
     """Normal file, not executable."""
-    set_mode_to(file, 0600)
+    set_mode_to(file, 0o600)
 
 
 def skip_symlink(entry):
     """Symlinks are skipped.
-    
+
     Imagine that you have a symlink that points out of your Dropbox folder to
     your HOME for instance. If we followed symlinks, the script would process
     your HOME directory too. We want the script to stay strictly in your
     Dropbox folder."""
     global symlinks
     symlinks += 1
-    print "# skip symlink {0}".format(entry)
+    print("# skip symlink {0}".format(entry))
 
 
 def traverse(directory):
@@ -145,7 +147,7 @@ def traverse(directory):
         # else
         process_dir(d)
         traverse(d)
-    
+
     for f in files:
         if os.path.islink(f):
             skip_symlink(f)
@@ -158,14 +160,14 @@ def verify_dir(directory):
     """ Verify if we are in the Dropbox folder."""
     d = os.path.abspath(directory)
     if 'dropbox' not in d.lower():
-        print >>sys.stderr, """
+        print("""
 It seems that you are not in the Dropbox folder. If you launch this
 script in a wrong folder, it may do more harm than good since it
 changes file permissions recursively.
 If this is a false alarm and you really want to execute the script
 here, disable this verification by setting the variable VERIFY_DROPBOX
 to False.
-"""
+""", file=sys.stderr)
         sys.exit(1)
 
 
@@ -177,10 +179,10 @@ def main():
     process_dir(start_dir)
     traverse(start_dir)
     #chmod_ux(sys.argv[0])
-    print "# skipped symlinks: {0}".format(symlinks)
-    print "# changes: {0}".format(changes)
+    print("# skipped symlinks: {:0,}".format(symlinks))
+    print("# changes: {:0,}".format(changes))
     if DRY:
-        print "# >>> it was a dry run, no changes were made <<<"
+        print("# >>> it was a dry run, no changes were made <<<")
 
 #############################################################################
 

@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
+# coding: utf-8
 
 """
 Monitor the mouse position.
@@ -10,7 +11,16 @@ A new coordinate system can be defined in settings.json.
 Then the script shows the absolute position (from the top left
 corner), and the relative position too (from the new coordinate
 system).
+
+I couldn't make it run under Python 3. I got the following error:
+
+    ImportError: No module named 'gtk'
+
+Last update: 2017-01-08 (yyyy-mm-dd)
 """
+
+from __future__ import (absolute_import, division,
+                        print_function, unicode_literals)
 
 import sys
 import os
@@ -18,7 +28,7 @@ import os
 from time import sleep
 
 import gtk
-gtk.gdk.threads_init() #@UndefinedVariable
+gtk.gdk.threads_init()
 
 import threading
 
@@ -115,12 +125,12 @@ def read_settings():
             X_0 = settings['x_0']
             Y_0 = settings['y_0']
     except IOError:
-        print >>sys.stderr, 'Warning: settings.json is missing.'
+        print('Warning: settings.json is missing.', file=sys.stderr)
     except ValueError:
-        print >>sys.stderr, "Warning: couldn't decode settings.json"
+        print("Warning: couldn't decode settings.json", file=sys.stderr)
     #
-    print '# X_0:', X_0
-    print '# Y_0:', Y_0
+    print('# X_0:', X_0)
+    print('# Y_0:', Y_0)
 
 ###################################################################################################
 

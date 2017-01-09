@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 """
 Copy text to clipboards (to both of them).
@@ -8,12 +8,13 @@ For a platform independent solution, you can check out
 https://github.com/asweigart/mapitpy/blob/master/pyperclip.py
 (I didn't try it).
 
-# from jpl2.clipboard import text_to_clipboards
-# from jpl2 import clipboard
+Last update: 2017-01-08 (yyyy-mm-dd)
 """
 
-from __future__ import (absolute_import, division,
-                        print_function, unicode_literals)
+if __name__ == "__main__":
+    import os
+    import sys
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import subprocess
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 Image to BASE64
@@ -27,11 +27,13 @@ Sample output:
 ASA8MlJq7046827/2AojiTVnI1xlFZjBisruU7tPCiqjg2h/L9KA2HgCQS5pE7UGLgwAhyCWWjYrrWE
 owFgJqyEsDi82HZDja/jyGaXuV7rYE6fv8+gtLXA7/OtcCEGSoQMUyEHAQgAjI2OAAgBIwcGAZaXmAE
 7Mpydnp+goaKjFBEAOw==' />
+
+Last update: 2017-01-08 (yyyy-mm-dd)
 """
 
-import sys
-import imghdr
 import base64
+import imghdr
+import sys
 import textwrap
 
 # you can change the 'class' attribute or you can add more attributes
@@ -77,15 +79,15 @@ def main(args):
     image_type = imghdr.what(filename)
 
     if image_type not in ['png', 'jpeg', 'gif']:
-        print "{0}: image file should be PNG, JPG or GIF.".format(sys.argv[0])
+        print("{0}: image file should be PNG, JPG or GIF.".format(sys.argv[0]))
         sys.exit(1)
     # else
-    print convert_to_base64(filename, image_type, format=HTML_WRAP)
+    print(convert_to_base64(filename, image_type, format=HTML_WRAP))
 
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
-        print "{0}: missing image file argument.".format(sys.argv[0])
+        print("{0}: missing image file argument".format(sys.argv[0]))
         sys.exit(0)
     else:
         main(sys.argv[1:])

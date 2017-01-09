@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# encoding: utf-8
 
 """
 Website: https://ubuntuincident.wordpress.com/2011/03/17/show-the-absolute-path-of-a-file/
@@ -13,14 +12,14 @@ Usage: sp <filename> [-n]
 
 The option "-n" means normal output, i.e. spaces are not protected with
 a backslash.
-"""
 
-from __future__ import (absolute_import, division,
-                        print_function, unicode_literals)
+Last update: 2017-01-09 (yyyy-mm-dd)
+"""
 
 import os
 import sys
-from tocb import text_to_clipboards
+
+from lib.clipboard import text_to_clipboards
 
 
 def main():

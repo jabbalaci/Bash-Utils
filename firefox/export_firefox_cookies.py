@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 Extract Firefox cookies
@@ -19,21 +19,39 @@ https://old.0x7be.de/2008/06/19/firefox-3-und-cookiestxt/
 This version is a bit refactored but does exactly the same.
 Website: https://ubuntuincident.wordpress.com/2011/09/05/download-pages-with-wget-that-are-protected-by-cookies/
 GitHub:  https://github.com/jabbalaci/Bash-Utils (see the firefox/ folder)
+
+Last update: 2017-01-08 (yyyy-mm-dd)
 """
 
 import os
-import sys
 import sqlite3 as db
+import sys
+from pathlib import Path
 
-USERDIR = 'w3z7c6j4.default'
-
-COOKIEDB = os.path.expanduser('~') + '/.mozilla/firefox/' + USERDIR + '/cookies.sqlite'
+FIREFOX_DIR = Path(os.path.expanduser('~'), '.mozilla', 'firefox')
 OUTPUT = 'cookies.txt'
 CONTENTS = "host, path, isSecure, expiry, name, value"
 
 
+def get_cookie_db_path(firefox_dir):
+    for e in os.listdir(firefox_dir):
+        if e.endswith('.default'):
+            p = Path(firefox_dir, e, 'cookies.sqlite')
+            if not p.is_file():
+                print("Error: the file '{0}' doesn't exist".format(str(p)), file=sys.stderr)
+                sys.exit(1)
+            else:
+                return str(p)
+    # else
+    print("Error: the user dir. was not found in '{0}'".format(firefox_dir), file=sys.stderr)
+    sys.exit(1)
+
+
 def extract(host):
-    conn = db.connect(COOKIEDB)
+    cookie_db = get_cookie_db_path(str(FIREFOX_DIR))
+    print("# working with", cookie_db)
+
+    conn = db.connect(cookie_db)
     cursor = conn.cursor()
 
     sql = "SELECT {c} FROM moz_cookies WHERE host LIKE '%{h}%'".format(c=CONTENTS, h=host)
@@ -47,8 +65,8 @@ def extract(host):
         out.write(s)
         cnt += 1
 
-    print "Gesucht nach: {0}".format(host)
-    print "Exportiert: {0}".format(cnt)
+    print("Search term: {0}".format(host))
+    print("Exported: {0}".format(cnt))
 
     out.close()
     conn.close()
@@ -56,7 +74,7 @@ def extract(host):
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
-        print "{0}: error: specify the host.".format(sys.argv[0])
-        sys.exit()
-    else:
-        extract(sys.argv[1])
+        print("{0}: specify the host".format(sys.argv[0]))
+        sys.exit(1)
+    # else
+    extract(sys.argv[1])

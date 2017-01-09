@@ -1,5 +1,4 @@
-#!/usr/bin/env python2
-# encoding: utf-8
+#!/usr/bin/env python3
 
 """
 Laszlo Szathmary, 2014 (jabba.laci@gmail.com)
@@ -11,14 +10,14 @@ then this script will print just "solo".
 The output is also copied to the clipboard.
 
 Usage: here
-"""
 
-from __future__ import (absolute_import, division,
-                        print_function, unicode_literals)
+Last update: 2017-01-08 (yyyy-mm-dd)
+"""
 
 import os
 import sys
-from tocb import text_to_clipboards
+
+from lib.clipboard import text_to_clipboards
 
 
 def main():

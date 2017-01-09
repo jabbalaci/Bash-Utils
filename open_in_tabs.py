@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 """
 Open URLs in tabs
@@ -18,16 +18,18 @@ Options:
   -s, --simultaneously  Open URLs simultaneously.
 
 Warning! The combination -ns is experimental!
+
+Last update: 2017-01-08 (yyyy-mm-dd)
 """
 
-import webbrowser
-import sys
-import commands
 import shlex
-
+import sys
+import webbrowser
 from optparse import OptionParser
 from subprocess import call
 from time import sleep
+
+from lib.process import get_simple_cmd_output
 
 __version__ = '0.3.0'
 
@@ -38,7 +40,7 @@ DELAY = 3.0                             # seconds
 
 
 def is_firefox_running():
-    output = commands.getoutput('ps ux')
+    output = get_simple_cmd_output('ps ux')
     return FIREFOX_PROCESS in output
 
 
@@ -77,13 +79,11 @@ def main():
     options, arguments = parser.parse_args()
 
     if options.new_window and options.simultaneously:
-        print >>sys.stderr, \
-            "# {0}: this combination is experimental.".format(sys.argv[0])
+        print("# {0}: this combination is experimental.".format(sys.argv[0]), file=sys.stderr)
         #sys.exit(2)
 
     if not is_firefox_running():
-        print >>sys.stderr, \
-            "{0}: error: firefox is not running.".format(sys.argv[0])
+        print("{0}: error: firefox is not running.".format(sys.argv[0]), file=sys.stderr)
         sys.exit(1)
 
     first = True
@@ -100,6 +100,8 @@ def main():
             open_in_new_tab(url, options, arguments)
 
     return 0
+
+#############################################################################
 
 if __name__ == '__main__':
     sys.exit(main())

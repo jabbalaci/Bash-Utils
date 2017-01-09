@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# encoding: utf-8
 
 """
 Figure out the email of a github user.
@@ -11,6 +10,8 @@ Author:
 
 Laszlo Szathmary, alias Jabba Laci, 2016
 jabba.laci@gmail.com
+
+Last update: 2017-01-08 (yyyy-mm-dd)
 """
 
 import re

@@ -2,9 +2,11 @@
 
 # AUTHOR:      Laszlo Szathmary, jabba.laci@gmail.com
 # DESCRIPTION: Write special Hungarian and French
-#              characters in a simple way (using the ISO-8859-1 
-#              (Latin-1) charset), then convert them to their 
+#              characters in a simple way (using the ISO-8859-1
+#              (Latin-1) charset), then convert them to their
 #              LaTeX-equivalents with this script.
+#
+# Last update: 2017-01-08 (yyyy-mm-dd)
 
 use strict;
 
@@ -68,4 +70,3 @@ while (<F1>)
    print;
 }
 close F1;
-

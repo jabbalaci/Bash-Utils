@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# encoding: utf-8
 
 """
 Show the top 10 largest files in the current directory.
@@ -47,6 +46,8 @@ Samples:
     5.34M ./vmlinuz-3.11.0-14-generic
 
 Requires Python 3.
+
+Last update: 2017-01-09 (yyyy-mm-dd)
 """
 
 import locale

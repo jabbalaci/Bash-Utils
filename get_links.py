@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 """
 Extract all links from a web page
@@ -12,44 +12,35 @@ Given a webpage, extract all links.
 Usage:
 ------
 ./get_links.py <URL>
+
+Last update: 2017-01-08 (yyyy-mm-dd)
 """
 
 import sys
-import urllib
-import urlparse
+from urllib.parse import urljoin
 
+import requests
 from bs4 import BeautifulSoup
 
-
-class MyOpener(urllib.FancyURLopener):
-    version = 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15'
+user_agent = {'User-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0'}
 
 
 def process(url):
-    myopener = MyOpener()
-    #page = urllib.urlopen(url)
-    page = myopener.open(url)
-
-    text = page.read()
-    page.close()
-
-    soup = BeautifulSoup(text, "lxml")
+    r = requests.get(url, headers=user_agent)
+    soup = BeautifulSoup(r.text, "lxml")
 
     for tag in soup.findAll('a', href=True):
-        tag['href'] = urlparse.urljoin(url, tag['href'])
-        print tag['href']
-# process(url)
+        tag['href'] = urljoin(url, tag['href'])
+        print(tag['href'])
 
 
 def main():
     if len(sys.argv) == 1:
-        print "Jabba's Link Extractor v0.1"
-        print "Usage: %s URL [URL]..." % sys.argv[0]
+        print("Usage: {0} URL [URL]...".format(sys.argv[0]))
         sys.exit(1)
     # else, if at least one parameter was passed
     for url in sys.argv[1:]:
         process(url)
-# main()
 
 #############################################################################
 

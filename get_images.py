@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 Extract image links from a web page
@@ -14,45 +14,40 @@ get_images.py URL [URL]... [options]
 
 Options:
   -l, --length  Show lengths of images.
+
+Last update: 2017-01-09 (yyyy-mm-dd)
 """
 
 import sys
 import urllib
-import urlparse
-
 from optparse import OptionParser
-from BeautifulSoup import BeautifulSoup
+from urllib.parse import urljoin
+
+import requests
+from bs4 import BeautifulSoup
+
+user_agent = {'User-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0'}
 
 
-class MyOpener(urllib.FancyURLopener):
-    version = 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15'
-# MyOpener
-
-
-def get_url_info(url):
-    d = urllib.urlopen(url)
-    return d.info()
-# get_url_info
+def get_content_length(url):
+    try:
+        h = requests.get(url, headers=user_agent).headers
+        return h['content-length']
+    except:
+        return "?"
 
 
 def process(url, options):
-    myopener = MyOpener()
-    #page = urllib.urlopen(url)
-    page = myopener.open(url)
-
-    text = page.read()
-    page.close()
-
-    soup = BeautifulSoup(text)
+    r = requests.get(url, headers=user_agent)
+    soup = BeautifulSoup(r.text, "lxml")
 
     for tag in soup.findAll('img', src=True):
-        image_url = urlparse.urljoin(url, tag['src'])
-        image_info = get_url_info(image_url)
-        print image_url,
+        image_url = urljoin(url, tag['src'])
+        print(image_url, end='')
         if options.length:
-            print image_info['Content-Length'],
-        print
-# process
+            length = get_content_length(image_url)
+            print('', length, end='')
+        print()
 
 
 def main():
@@ -63,7 +58,7 @@ def main():
                       '--length',
                       action='store_true',
                       default=False,
-                      help='Show lengths of images.')
+                      help='show lengths of images')
 
     options, arguments = parser.parse_args()
 
@@ -73,7 +68,6 @@ def main():
     # else, if at least one parameter was passed
     for url in arguments:
         process(url, options)
-# main
 
 #############################################################################
 

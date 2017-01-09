@@ -1,8 +1,11 @@
 #!/usr/bin/perl -w
 
-# AUTHOR:	Mehdi Kaytoue, mehdi.kaytoue@gmail.com
-#		    Laszlo Szathmary, jabba.laci@gmail.com (Thank you for the original script)
+# AUTHORS:
+# * Mehdi Kaytoue, mehdi.kaytoue@gmail.com
+# * Laszlo Szathmary, jabba.laci@gmail.com
 # DESCRIPTION: convert French accents (latin) into LaTeX accents.
+#
+# Last update: 2017-01-08 (yyyy-mm-dd)
 
 use strict;
 

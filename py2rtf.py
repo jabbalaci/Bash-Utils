@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 py2rtf
@@ -22,6 +22,8 @@ Example:
 
 $ py2rtf hello.py       # the output is written to hello.rtf
 $ py2rtf -f hello.py    # overwrite hello.rtf if exists
+
+Last update: 2017-01-09 (yyyy-mm-dd)
 """
 
 import os
@@ -37,7 +39,7 @@ def process(args):
     if force:
         args.remove('-f')
     if len(args) == 0:
-        print >>sys.stderr, "Error: the input file is missing."
+        print("Error: the input file is missing.", file=sys.stderr)
         sys.exit(1)
     # else
     in_file = args[0]
@@ -45,18 +47,18 @@ def process(args):
     (fileBaseName, fileExt) = os.path.splitext(fileName)
     out_file = os.path.join(dirName, fileBaseName + '.rtf')
     if not force and os.path.isfile(out_file):
-        print >>sys.stderr, "Warning: the file {outf} exists.".format(outf=out_file)
-        print >>sys.stderr, "Tip: use the -f option to force overwrite."
+        print("Warning: the file {outf} exists.".format(outf=out_file), file=sys.stderr)
+        print("Tip: use the -f option to force overwrite.", file=sys.stderr)
         sys.exit(1)
     # else
     cmd = 'pygmentize -f rtf -o {outf} {inf}'.format(outf=out_file, inf=in_file)
-    print '#', cmd
+    print('#', cmd)
     #
     os.system(cmd)
 
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
-        print >>sys.stderr, "Usage: {0} [-f] input.py".format(sys.argv[0])
+        print("Usage: {0} [-f] input.py".format(sys.argv[0]), file=sys.stderr)
     else:
         process(sys.argv[1:])

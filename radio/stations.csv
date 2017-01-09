@@ -3,8 +3,8 @@ slay;http://relay3.slayradio.org:8000/;http://www.slayradio.org/home.php
 kossuth;http://stream002.radio.hu/mr1.mp3;http://www.mr1-kossuth.hu/
 szkr;http://radio.szentkoronaradio.com:8048/;http://radio.szentkoronaradio.com
 maria;http://www.mariaradio.hu:8000/mr;http://www.mariaradio.hu
-goa;http://scfire-ntc-aa01.stream.aol.com:80/stream/1008;http://www.di.fm/
-trance;http://scfire-ntc-aa01.stream.aol.com:80/stream/1003;http://www.di.fm/
-chillout;http://scfire-ntc-aa01.stream.aol.com:80/stream/1035;http://www.di.fm/
-dj mixes;http://u16.di.fm:80/di_djmixes;
-future synthpop;http://u16.di.fm:80/di_futuresynthpop;
+goa;http://pub1.diforfree.org:8000/di_goapsy_hi
+trance;http://pub1.diforfree.org:8000/di_trance_hi
+chillout;http://pub1.diforfree.org:8000/di_chillout_hi
+dj mixes;http://pub1.diforfree.org:8000/di_djmixes_hi
+future synthpop;http://pub1.diforfree.org:8000/di_futuresynthpop_hi

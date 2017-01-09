@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 Where does a URL redirect?
@@ -15,23 +15,26 @@ Example:
 
 $ ./redirect_to.py http://bottlepy.org      # calling the script
 http://bottlepy.org/docs/dev/               # output
+
+Last update: 2017-01-09 (yyyy-mm-dd)
 """
 
 import sys
-import urllib
+import requests
 
 
 def redirect(url):
     try:
-        page = urllib.urlopen(url)
-        return page.geturl()
+        r = requests.get(url)
+        return r.url
     except:
-        print 'Error: there is something wrong with that URL'
+        print('Error: there is something wrong with that URL')
         sys.exit(1)
 
+#############################################################################
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
-        print "Usage: {0} <url>".format(sys.argv[0])
+        print("Usage: {0} <url>".format(sys.argv[0]))
     else:
-        print redirect(sys.argv[1])
+        print(redirect(sys.argv[1]))

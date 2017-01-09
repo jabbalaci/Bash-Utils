@@ -1,11 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 print the content of the clipboard to the standard output
-"""
 
-from __future__ import (absolute_import, division,
-                        print_function, unicode_literals)
+Last update: 2017-01-08 (yyyy-mm-dd)
+"""
 
 import sys
 
@@ -27,10 +26,8 @@ def process_parameters(params):
     for e in params:
         if e == "-1":
             print(cb.read_primary())
-            exit(0)
         elif e == "-2":
             print(cb.read_clipboard())
-            exit(0)
         else:
             print("Error: {0} is an unknown option.".format(e))
             exit(1)

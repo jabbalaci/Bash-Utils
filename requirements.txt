@@ -1,0 +1,6 @@
+bs4
+lxml
+mplayer
+pygmentize
+requests
+xsel

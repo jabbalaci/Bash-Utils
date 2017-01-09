@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 Alarm script
@@ -24,15 +24,16 @@ Usage:
 
 ./alarm.py
     Set alarm with the default time. In my case it's 6h55.
+
+Last update: 2017-01-08 (yyyy-mm-dd)
 """
 
 import os
 import sys
-
-from optparse import OptionParser
 from datetime import datetime
-from time import sleep
+from optparse import OptionParser
 from random import shuffle
+from time import sleep
 
 
 MUSIC_DIR = '/media/jabba/JIVE/mp3/sfa_scifi'
@@ -71,16 +72,16 @@ class CollectMp3:
         """Collect songs, shuffle order, and print a little statistics."""
         self.traverse(self.music_dir)
         if self.get_number_of_songs() == 0:
-            print "Error: there are no songs available."
+            print("Error: there are no songs available.")
             sys.exit(-1)
         # else
         shuffle(self.songs)
         header = "number of songs: {0}".format(self.get_number_of_songs())
         sep = '#' * (len(header) + 2 + 2)
-        print sep
-        print '# ' + header + ' #'
-        print sep
-        print
+        print(sep)
+        print('#', header, '#')
+        print(sep)
+        print()
 
     def get_number_of_songs(self):
         return len(self.songs)
@@ -103,13 +104,10 @@ def play_music():
 
 
 def set_alarm(hour, minute):
-    # autoflush
-    sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
-
     sep = "=" * 19
-    print sep
-    print "| Alarm at {0:2}h{1:02}. |".format(hour, minute)
-    print sep
+    print(sep)
+    print("| Alarm at {0:2}h{1:02}. |".format(hour, minute))
+    print(sep)
 
     alarm_time = hour * 100 + minute
 
@@ -121,11 +119,11 @@ def set_alarm(hour, minute):
             play_music()
             sys.exit(0)
         else:
-            sys.stdout.write('.')
+            sys.stdout.write('.'); sys.stdout.flush()
             try:
                 sleep(10)
             except KeyboardInterrupt:
-                print
+                print()
                 break   # break out of 'while True'
 
 
@@ -141,10 +139,10 @@ def check_alarm(alarm_time):
         hour = int(hour)
         minute = int(minute)
         if not ((0 <= hour <= 23) and (0 <= minute <= 59)):
-            print >>sys.stderr, msg
+            print(msg, file=sys.stderr)
             sys.exit(1)
     except ValueError:
-        print >>sys.stderr, msg
+        print(msg, file=sys.stderr)
         sys.exit(1)
 
     return hour, minute
@@ -174,7 +172,7 @@ def main(default=DEFAULT_TIME):
     if options.is_play:
         global MPLAYER_OPTIONS
         MPLAYER_OPTIONS = ''
-        print '# MPLAYER_OPTIONS is disabled'
+        print('# MPLAYER_OPTIONS is disabled')
 
     collector.collect()
 
@@ -186,6 +184,7 @@ def main(default=DEFAULT_TIME):
         hour, minute = check_alarm(options.alarm_time)
         set_alarm(hour, minute)
 
+#############################################################################
 
 if __name__ == "__main__":
     main()

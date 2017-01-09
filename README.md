@@ -139,6 +139,13 @@ redirect_to.py
 * Usage: `redirect_to.py <URL>`
 * [blog post](http://pythonadventures.wordpress.com/2010/12/21/where-does-a-page-redirect-to/)
 
+rep.py
+------
+* Repeat a bash command several times.
+* Usage: `rep [rep] [cmd]`
+* Example: `rep 3 echo hello`
+* Meaning: print the text "hello" three times.
+
 sp.py
 -----
 * Print the absolute path of a file. If no parameter is passed, show the current path. The name stands for "show path".

@@ -148,9 +148,14 @@ redirect_to.py
 rep.py
 ------
 * Repeat a bash command several times.
-* Usage: `rep [rep] [cmd]`
+* Usage: `rep <rep> <cmd>`
 * Example: `rep 3 echo hello`
 * Meaning: print the text "hello" three times.
+
+slogan.py
+------
+* Generate some slogans from a keyword.
+* Usage: `slogan <keyword>`
 
 sp.py
 -----

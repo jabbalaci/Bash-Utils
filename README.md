@@ -120,6 +120,11 @@ img_to_base64.py
 * Usage: `img_to_base64 <image_file>`
 * [blog post](https://ubuntuincident.wordpress.com/2011/04/17/embed-images-in-html-pages/)
 
+is_net_back.py
+--------------
+* Play a sound when the Internet connection is back.
+* Usage: `is_net_back`
+
 myip.py
 -------
 * My external IP address.

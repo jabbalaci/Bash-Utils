@@ -3,3 +3,4 @@ docopt
 lxml
 pygments
 requests
+six

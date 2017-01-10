@@ -181,3 +181,15 @@ top10.py
 --------
 * Show the top 10 largest files in the current directory. Filesizes can be shown in a human-readable format with the `-h` option.
 * Usage: `top10 [-h]`
+
+userpass.py
+-----------
+* Username and password generator.
+* Usage: `userpass`
+
+us.py
+-----
+* Change spaces to underscores.
+* Usage: `us <text>`
+* Example: `us "How to Think Like a Computer Scientist.pdf"`
+* Result: `How_to_Think_Like_a_Computer_Scientist.pdf`

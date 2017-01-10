@@ -76,9 +76,15 @@ $ alarm -t 7h5
 * [blog post]( https://ubuntuincident.wordpress.com/2011/04/17/alarm-script/)
 
 cb.py
----------
+-----
 * Print the content of the clipboard to the standard output.
 * Usage: `cb.py`
+
+fftabs.py
+---------
+* A command line program for manipulating Firefox tabs.
+* Requirements: Firefox + MozRepl add-on.
+* Help: `fftabs -h`
 
 get_alap.py
 -----------

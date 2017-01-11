@@ -41,9 +41,6 @@ Requirements:
   - activate the add-on (under Tools -> MozRepl, "Start" and "Activate on startup")
 """
 
-__project__ = "Firefox Tabs"
-__version__ = "0.0.1"
-
 
 def option_raw():
     for e in ff.get_tab_list():

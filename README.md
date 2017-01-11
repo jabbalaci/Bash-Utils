@@ -194,7 +194,9 @@ userpass.py
 
 us.py
 -----
-* Change spaces to underscores.
-* Usage: `us <text>`
-* Example: `us "How to Think Like a Computer Scientist.pdf"`
-* Result: `How_to_Think_Like_a_Computer_Scientist.pdf`
+* Change spaces to underscores. Pass a string as a parameter OR pass it
+on the standard input.
+* Example #1: `us "How to Think Like a Computer Scientist.pdf"`
+* Result #1: `How_to_Think_Like_a_Computer_Scientist.pdf`
+* Example #2: `echo "he he" | us`
+* Result #2: `he_he`

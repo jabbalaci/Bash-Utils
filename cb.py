@@ -8,7 +8,11 @@ Last update: 2017-01-08 (yyyy-mm-dd)
 
 import sys
 
+import config as cfg
 from lib import clipboard as cb
+from lib import fs
+
+fs.check_if_available(cfg.XSEL, "Error: {} is not available!".format(cfg.XSEL))
 
 
 def print_help():

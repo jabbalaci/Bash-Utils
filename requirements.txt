@@ -2,5 +2,6 @@ bs4
 docopt
 lxml
 pygments
+pytest
 requests
 six

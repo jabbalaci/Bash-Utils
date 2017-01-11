@@ -35,12 +35,18 @@ from optparse import OptionParser
 from random import shuffle
 from time import sleep
 
+from lib import fs, podium
+
 
 MUSIC_DIR = '/media/jabba/JIVE/mp3/sfa_scifi'
+if podium.get_short_fingerprint() == '91d6c2':    # work machine
+    MUSIC_DIR = '/trash/mp3'
 TRAVERSE_RECURSIVELY = True
 MPLAYER = '/usr/bin/mplayer'
 MPLAYER_OPTIONS = '-endpos 00:00:60'    # play first 60 seconds; disabled when -p is used
 DEFAULT_TIME = '6h55'
+
+fs.check_if_available(MPLAYER, "Error: {} is not available!".format(MPLAYER))
 
 
 class CollectMp3:
@@ -104,9 +110,9 @@ def play_music():
 
 
 def set_alarm(hour, minute):
-    sep = "=" * 19
+    sep = "=" * 18
     print(sep)
-    print("| Alarm at {0:2}h{1:02}. |".format(hour, minute))
+    print("| alarm at {0:2}h{1:02} |".format(hour, minute))
     print(sep)
 
     alarm_time = hour * 100 + minute

@@ -22,6 +22,10 @@ def main(argv):
     if len(argv) > 1:
         text = argv[1]
         print(text.replace(' ', '_'))
+    else:
+        for line in sys.stdin:
+            line = line.rstrip("\n")
+            print(line.replace(' ', '_'))
 
 #############################################################################
 

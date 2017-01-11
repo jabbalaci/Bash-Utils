@@ -19,7 +19,11 @@ Last update: 2017-01-09 (yyyy-mm-dd)
 import os
 import sys
 
+import config as cfg
+from lib import fs
 from lib.clipboard import text_to_clipboards
+
+fs.check_if_available(cfg.XSEL, "Error: {} is not available!".format(cfg.XSEL))
 
 
 def main():

@@ -205,3 +205,9 @@ on the standard input.
 * Result #1: `How_to_Think_Like_a_Computer_Scientist.pdf`
 * Example #2: `echo "he he" | us`
 * Result #2: `he_he`
+
+xml2json.py
+-----------
+* Convert an XML file to JSON.
+* This is a wrapper around the excellent [xmltodict](https://github.com/martinblech/xmltodict) library.
+* Usage: `xml2json <input.xml>`

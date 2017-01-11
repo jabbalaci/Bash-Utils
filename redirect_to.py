@@ -20,6 +20,8 @@ Last update: 2017-01-09 (yyyy-mm-dd)
 """
 
 import sys
+from pathlib import Path
+
 import requests
 
 
@@ -35,6 +37,6 @@ def redirect(url):
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
-        print("Usage: {0} <url>".format(sys.argv[0]))
+        print("Usage: {0} <url>".format(Path(sys.argv[0]).name))
     else:
         print(redirect(sys.argv[1]))

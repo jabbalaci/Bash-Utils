@@ -31,6 +31,9 @@ from docopt import docopt
 
 from lib import firefox as ff
 
+__project__ = 'Firefox Tabs'
+__version__ = '0.1'
+
 
 INFO = """
 A command line program for manipulating Firefox tabs.

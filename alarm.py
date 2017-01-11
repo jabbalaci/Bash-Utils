@@ -39,7 +39,7 @@ from lib import fs, podium
 
 
 MUSIC_DIR = '/media/jabba/JIVE/mp3/sfa_scifi'
-if podium.get_short_fingerprint() == '91d6c2':    # work machine
+if podium.get_short_fingerprint() in ['91d6c2', '863604']:
     MUSIC_DIR = '/trash/mp3'
 TRAVERSE_RECURSIVELY = True
 MPLAYER = '/usr/bin/mplayer'

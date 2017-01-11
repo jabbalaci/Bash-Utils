@@ -12,6 +12,7 @@ It will print "hello" five times.
 
 import os
 import sys
+from pathlib import Path
 
 
 class MissingCommandException(Exception):
@@ -24,7 +25,7 @@ Usage: {} [rep] [cmd]
 Where:
   rep    is the repetition (e.g. 5)
   cmd    is the command to run (e.g. echo hello)
-""".strip().format(sys.argv[0]))
+""".strip().format(Path(sys.argv[0]).name))
 
 
 def run(rep, cmd):

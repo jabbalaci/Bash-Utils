@@ -35,6 +35,7 @@ import base64
 import imghdr
 import sys
 import textwrap
+from pathlib import Path
 
 # you can change the 'class' attribute or you can add more attributes
 TEMPLATE = "<img class='inline-image'" + \
@@ -87,7 +88,7 @@ def main(args):
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
-        print("{0}: missing image file argument".format(sys.argv[0]))
+        print("{0}: missing image file argument".format(Path(sys.argv[0]).name))
         sys.exit(0)
     else:
         main(sys.argv[1:])

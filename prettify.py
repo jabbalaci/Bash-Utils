@@ -16,6 +16,7 @@ Last update: 2017-01-08 (yyyy-mm-dd)
 """
 
 import sys
+from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup
@@ -32,7 +33,7 @@ def process(url):
 
 def main():
     if len(sys.argv) == 1:
-        print("Usage: {0} <URL>".format(sys.argv[0]))
+        print("Usage: {0} <URL>".format(Path(sys.argv[0]).name))
         sys.exit(1)
     # else, if at least one parameter was passed
     print(process(sys.argv[1]))

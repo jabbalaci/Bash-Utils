@@ -6,6 +6,7 @@ XML to JSON converter.
 
 import json
 import sys
+from pathlib import Path
 
 from lib import xmltodict
 
@@ -19,7 +20,7 @@ def convert(xml_file, xml_attribs=True):
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
-        print('Usage: {0} input.xml'.format(sys.argv[0]))
+        print('Usage: {0} input.xml'.format(Path(sys.argv[0]).name))
         sys.exit(1)
     # else
     print(convert(sys.argv[1]))

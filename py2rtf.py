@@ -28,6 +28,7 @@ Last update: 2017-01-09 (yyyy-mm-dd)
 
 import os
 import sys
+from pathlib import Path
 
 
 def process(args):
@@ -59,6 +60,6 @@ def process(args):
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
-        print("Usage: {0} [-f] input.py".format(sys.argv[0]), file=sys.stderr)
+        print("Usage: {0} [-f] input.py".format(Path(sys.argv[0]).name), file=sys.stderr)
     else:
         process(sys.argv[1:])

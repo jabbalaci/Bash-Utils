@@ -17,6 +17,7 @@ Last update: 2017-01-08 (yyyy-mm-dd)
 """
 
 import sys
+from pathlib import Path
 from urllib.parse import urljoin
 
 import requests
@@ -36,7 +37,7 @@ def process(url):
 
 def main():
     if len(sys.argv) == 1:
-        print("Usage: {0} URL [URL]...".format(sys.argv[0]))
+        print("Usage: {0} URL [URL]...".format(Path(sys.argv[0]).name))
         sys.exit(1)
     # else, if at least one parameter was passed
     for url in sys.argv[1:]:

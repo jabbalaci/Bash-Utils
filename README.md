@@ -130,6 +130,11 @@ myip.py
 * My external IP address.
 * Usage: `myip`
 
+ocr.py
+------
+* A wrapper script around the [Tesseract](https://github.com/tesseract-ocr/tesseract) OCR engine. Convert an image to string.
+* Usage: `ocr <image_file>`
+
 open_in_tabs.py
 ---------------
 * Read URLs from the standard input and open them in separated browser tabs.

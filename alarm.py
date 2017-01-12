@@ -36,13 +36,14 @@ from random import shuffle
 from time import sleep
 
 from lib import fs, podium
+import config as cfg
 
 
 MUSIC_DIR = '/media/jabba/JIVE/mp3/sfa_scifi'
 if podium.get_short_fingerprint() in ['91d6c2', '863604']:
     MUSIC_DIR = '/trash/mp3'
 TRAVERSE_RECURSIVELY = True
-MPLAYER = '/usr/bin/mplayer'
+MPLAYER = cfg.MPLAYER
 MPLAYER_OPTIONS = '-endpos 00:00:60'    # play first 60 seconds; disabled when -p is used
 DEFAULT_TIME = '6h55'
 
@@ -157,7 +158,6 @@ def check_alarm(alarm_time):
 def main(default=DEFAULT_TIME):
     parser = OptionParser(usage='%prog [options]')
 
-    #[options]
     parser.add_option('-t',
                       '--time',
                       action='store',

@@ -74,7 +74,7 @@ def extract(host):
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
-        print("{0}: specify the host".format(sys.argv[0]))
+        print("{0}: specify the host".format(Path(sys.argv[0]).name))
         sys.exit(1)
     # else
     extract(sys.argv[1])

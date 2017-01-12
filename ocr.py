@@ -2,6 +2,9 @@
 
 """
 Convert an image file to string.
+
+How to install Tesseract:
+* https://ubuntu.flowconsult.at/linux/ocr-tesseract-text-recognition-ubuntu-14-04/
 """
 
 import sys

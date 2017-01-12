@@ -11,6 +11,7 @@ import sys
 import config as cfg
 from lib import clipboard as cb
 from lib import fs
+from pathlib import Path
 
 fs.check_if_available(cfg.XSEL, "Error: {} is not available!".format(cfg.XSEL))
 
@@ -23,7 +24,7 @@ Options:
     -h, --help        this help
     -1                read from primary clipboard (default)
     -2                read from secondary clipboard
-""".strip().format(sys.argv[0]))
+""".strip().format(Path(sys.argv[0]).name))
 
 
 def process_parameters(params):

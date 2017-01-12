@@ -101,7 +101,6 @@ collector = CollectMp3(MUSIC_DIR)
 
 #############################################################################
 
-
 def play_music():
     songs = collector.get_songs()
     for f in songs:

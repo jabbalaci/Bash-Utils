@@ -30,7 +30,7 @@ def main():
     cmd = 'youtube-dl -g "{}"'.format(url)
     print('#', cmd)
     url2 = get_simple_cmd_output(cmd).strip()
-    print(url2)
+    print('#', url2)
     cmd = 'ffmpeg -i "{video}" -f mp3 {audio}.mp3'.format(
         video=url2, audio=slugify(url)
     )

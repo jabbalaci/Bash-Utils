@@ -10,6 +10,8 @@ MPLAYER = '/usr/bin/mplayer'
 PLAYER = MPLAYER
 TESSERACT = '/usr/bin/tesseract'
 XSEL = '/usr/bin/xsel'
+YOUTUBE_DL = '/usr/bin/youtube-dl'
+FFMPEG = '/usr/bin/ffmpeg'
 
 ASSETS_DIR = str(Path(ROOT_DIR, 'assets'))
 ASSETS_OCR_DIR = str(Path(ROOT_DIR, 'assets', 'ocr'))

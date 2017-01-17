@@ -192,6 +192,11 @@ top10.py
 * Show the top 10 largest files in the current directory. Filesizes can be shown in a human-readable format with the `-h` option.
 * Usage: `top10 [-h]`
 
+twitch2mp3.py
+-------------
+* Grab a twitch video in mp3.
+* Usage: `twitch2mp3 TWITCH_VIDEO_URL`
+
 userpass.py
 -----------
 * Username and password generator.

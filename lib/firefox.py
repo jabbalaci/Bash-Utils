@@ -92,7 +92,7 @@ def get_curr_tab_url():
     """
     with Mozrepl() as mr:
         result = mr.cmd("content.location.href")
-        return result[2].split()[0].replace('"', '')
+        return result[2].decode().split()[0].replace('"', '')
 
 
 def open_new_empty_tab():

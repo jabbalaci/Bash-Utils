@@ -4,6 +4,8 @@
 Convert a text (string) to a base64 string (encode).
 """
 
+import readline    # to overcome the 4k input limit
+
 from lib.jhash import str_to_base64
 
 

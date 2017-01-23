@@ -4,6 +4,8 @@
 Convert a text (string) to md5 hexa string (encode).
 """
 
+import readline    # to overcome the 4k input limit
+
 from lib.jhash import string_to_md5
 
 

@@ -4,6 +4,8 @@
 Convert a base64 string back to a normal string (decode).
 """
 
+import readline    # to overcome the 4k input limit
+
 from lib.jhash import base64_to_str as back
 
 

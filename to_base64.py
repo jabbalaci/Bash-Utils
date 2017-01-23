@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 """
-Convert a text (string) to md5 hexa string (encode).
+Convert a text (string) to a base64 string (encode).
 """
 
-from lib.jhash import string_to_md5
+from lib.jhash import str_to_base64
 
 
 def main():
@@ -16,7 +16,7 @@ def main():
     #
     print("Text: '{}'".format(text))
     print()
-    print(string_to_md5(text))
+    print(str_to_base64(text))
 
 ##############################################################################
 

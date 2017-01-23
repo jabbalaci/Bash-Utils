@@ -3,10 +3,11 @@
 """
 hashlib
 
-# from jplib.jhash import string_to_md5
-# from jplib.jhash import file_to_md5
+# from lib.jhash import string_to_md5
+# from lib.jhash import file_to_md5
 """
 
+import base64
 import hashlib
 import random
 
@@ -77,6 +78,23 @@ def num2str(n):
         return chr(n % 256) + num2str(n // 256)
     else:
         return ""
+
+
+def str_to_base64(s):
+    """
+    >>> str_to_base64("László")
+    'TMOhc3psw7M='
+    """
+    data = base64.b64encode(s.encode())
+    return data.decode()
+
+
+def base64_to_str(b64):
+    """
+    >>> base64_to_str("TMOhc3psw7M=")
+    'László'
+    """
+    return base64.b64decode(b64.encode()).decode()
 
 #############################################################################
 

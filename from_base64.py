@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
 
 """
-Convert a text (string) to md5 hexa string (encode).
+Convert a base64 string back to a normal string (decode).
 """
 
-from lib.jhash import string_to_md5
+from lib.jhash import base64_to_str as back
 
 
 def main():
     try:
-        text = input("text> ")
+        inp = input("base64 string> ")
     except (KeyboardInterrupt, EOFError):
         print()
         return
     #
-    print("Text: '{}'".format(text))
+    print("Input: '{}'".format(inp))
     print()
-    print(string_to_md5(text))
+    print(back(inp))
 
 ##############################################################################
 

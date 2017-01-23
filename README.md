@@ -86,6 +86,11 @@ fftabs.py
 * Requirements: Firefox + MozRepl add-on.
 * Help: `fftabs -h`
 
+from_base64.py
+--------------
+* Ask a base64 string and convert it back to a normal string (decode).
+* Usage: `from_base64`
+
 get_alap.py
 -----------
 * An interactive program to generate a skeleton source code.
@@ -179,6 +184,11 @@ sp.py
 * This is one of my most useful scripts :) I use it every day.
 * Usage: `sp [<filename>]`
 * [blog post](https://ubuntuincident.wordpress.com/2011/03/17/show-the-absolute-path-of-a-file/)
+
+to_base64.py
+------------
+* Ask a string and convert it to a base64 string (encode).
+* Usage: `to_base64`
 
 to_md5.py
 ---------

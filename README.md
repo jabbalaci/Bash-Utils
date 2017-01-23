@@ -180,6 +180,13 @@ sp.py
 * Usage: `sp [<filename>]`
 * [blog post](https://ubuntuincident.wordpress.com/2011/03/17/show-the-absolute-path-of-a-file/)
 
+to_md5.py
+---------
+* This scripts reads a text *interactively* and prints its
+md5-encoded version. The output is a 32-character long
+hexa string.
+* Usage: `to_md5`
+
 tocb.py
 -------
 * Copy the text from the standard input to ALL clipboards. Thus, you can use any paste method to insert your text (middle mouse button or Shift+Insert). The name stands for "to clipboard(s)".

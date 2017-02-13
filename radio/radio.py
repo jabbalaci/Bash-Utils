@@ -47,9 +47,14 @@ def read_choice(li, dic):
     print("You can quit with 'q'.")
     while True:
         record = None
-        choice = input("> ")
+        try:
+            choice = input("> ")
+        except:
+            print()
+            exit(0)
+        #
         if choice == '' or choice == 'q':
-            sys.exit(0)
+            exit(0)
         # else
         try:
             # if it's a number

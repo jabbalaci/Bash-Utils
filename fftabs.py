@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-"""Firefox Tabs.
+"""
+Firefox Tabs
 
 Usage:
   fftabs.py -a | --all
@@ -9,6 +10,7 @@ Usage:
   fftabs.py -t | --title
   fftabs.py (-f | --focus) ID
   fftabs.py --count
+  fftabs.py --current
   fftabs.py (-c | -k | --close) ID...
   fftabs.py -r | --raw
   fftabs.py -h | --help
@@ -21,6 +23,7 @@ Options:
   -t --title        Show titles.
   -f --focus        Focus on selected tab, where ID is the tab index.
   --count           Number of tabs.
+  --current         URL of the current tab.
   -c -k --close     Close (kill) selected tab, where ID is the tab index(es).
   -r --raw          List all tabs in raw format.
   -h --help         Show this screen.
@@ -89,6 +92,10 @@ def option_count():
     print(ff.get_number_of_tabs())
 
 
+def option_current_tab():
+    print(ff.get_curr_tab_url())
+
+
 def option_close(args):
     total = ff.get_number_of_tabs()
     li = sorted([int(x) for x in args['ID'] if 0 <= int(x) < total])
@@ -115,6 +122,8 @@ def main(args):
         option_focus(args)
     elif args['--count']:
         option_count()
+    elif args['--current']:
+        option_current_tab()
     elif args['--close']:
         option_close(args)
     else:

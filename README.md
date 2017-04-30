@@ -25,6 +25,7 @@ dropbox/dropbox_permissions.py
 dropbox/get_public_link.py
 --------------------------
 * Show the public Dropbox link(s) of one (or several) file(s).
+* Dropbox made some changes in 2017, so it doesn't work anymore.
 * Usage: `get_public_link [<file> | -a]`
 * [blog post](https://ubuntuincident.wordpress.com/2011/06/01/get-the-public-dropbox-links-of-several-files/)
 
@@ -124,6 +125,13 @@ img_to_base64.py
 * Take an image file and encode it with BASE64. Put the encoded data in an "img" HTML tag.
 * Usage: `img_to_base64 <image_file>`
 * [blog post](https://ubuntuincident.wordpress.com/2011/04/17/embed-images-in-html-pages/)
+
+inout.py
+--------
+* An interactive script for 1) compressing a folder to another directory, and
+  2) uncompressing an archive file to a destination directory.
+* Rationale: I always forget the order of parameters...
+* Usage: `inout`
 
 is_net_back.py
 --------------

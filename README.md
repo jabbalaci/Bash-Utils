@@ -161,6 +161,11 @@ prettify.py
 * Usage: `prettify <URL>`
 * [blog post](https://pythonadventures.wordpress.com/2011/04/03/prettify-html-with-beautifulsoup/)
 
+prettyjson.py
+-------------
+* Prettify a JSON file.
+* Usage: `prettyjson ugly.json`
+
 py2rtf.py
 ---------
 * Transform a python source file to RTF.

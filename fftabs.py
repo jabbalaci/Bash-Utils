@@ -84,7 +84,11 @@ def option_title():
 
 
 def option_focus(args):
-    n = int(args['ID'][0])
+    if args['ID'][0] == 'LAST':
+        li = ff.get_tab_list()
+        n = len(li) - 1
+    else:
+        n = int(args['ID'][0])
     ff.put_focus_on_tab(n)
 
 

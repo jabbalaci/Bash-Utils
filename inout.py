@@ -5,8 +5,13 @@ An interactive script to
 1) compress a directory and store the archive in another folder, and
 2) uncompress an archive to a given folder
 
-TODO:
-* add zip support (currently only tar and tgz are supported)
+Supported archiving / compression methods:
+* tar
+* tgz
+* zip
+
+Contributors:
+* Gábor Szőcs <https://github.com/szocs08>, zip support
 """
 
 import os
@@ -85,7 +90,7 @@ def compress():
             die("# error: couldn't create the directory")
         print("# directory created")
     #
-    accepted = ["tar", "tgz"]
+    accepted = ["tar", "tgz", "zip"]
     while True:
         ext = my_input("> what compression to use ({})? ".format(", ".join(accepted)))
         if ext not in accepted:
@@ -99,6 +104,15 @@ def compress():
     if ext in ["tar", "tgz"]:
         fname = str(dname) + ".tgz"
         cmd = "tar {options} {to_dir}/{fname} {dname}".format(options=tar_options,
+                                                              to_dir=str(to_dir),
+                                                              fname=fname,
+                                                              dname=dname)
+        print("# " + cmd)
+        os.system(cmd)
+    zip_options = "-r"
+    if ext == "zip":
+        fname = str(dname) + ".zip"
+        cmd = "zip {options} {to_dir}/{fname} {dname}".format(options=zip_options,
                                                               to_dir=str(to_dir),
                                                               fname=fname,
                                                               dname=dname)
@@ -145,6 +159,12 @@ def uncompress():
         tar_options = "xvzf"
     if ftype in [TAR, TGZ]:
         cmd = "tar {options} {fname} -C {to_dir}".format(options=tar_options,
+                                                         to_dir=str(to_dir),
+                                                         fname=fname)
+        print("# " + cmd)
+        os.system(cmd)
+    if ftype == ZIP:
+        cmd = "unzip {fname} -d {to_dir}".format(options=tar_options,
                                                          to_dir=str(to_dir),
                                                          fname=fname)
         print("# " + cmd)

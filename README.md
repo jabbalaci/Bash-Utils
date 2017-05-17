@@ -31,7 +31,8 @@ dropbox/get_public_link.py
 
 firefox/export_firefox_cookies.py
 ---------------------------------
-* This script extracts cookies from Firefox's `cookies.sqlite`  that are specific to a given host. The exported cookies are saved in `cookies.txt`.
+* This script extracts cookies from Firefox's `cookies.sqlite`  that are specific to a given host. The exported cookies are saved in `cookies.txt`. New! It also exports session cookies from Firefox's `recovery.js` file.
+The exported cookies are saved to `session_cookies.txt`.
 * The original script was [written by Dirk Sohler](https://old.0x7be.de/2008/06/19/firefox-3-und-cookiestxt/).
 * Usage: `export_firefox_cookies.py <host>`
 * [blog post](https://ubuntuincident.wordpress.com/2011/09/05/download-pages-with-wget-that-are-protected-by-cookies/)

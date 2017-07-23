@@ -20,7 +20,7 @@ import sys
 from pathlib import Path
 
 COMPRESS, UNCOMPRESS = (1, 2)
-TAR, TGZ, ZIP = (3, 4, 5)
+TAR, TGZ, ZIP, TAR_BZ2 = (3, 4, 5, 6)
 MODE = None    # will be set later
 
 
@@ -144,6 +144,8 @@ def uncompress():
         ftype = TGZ
     elif s.endswith(".zip"):
         ftype = ZIP
+    elif s.endswith(".tar.bz2"):
+        ftype = TAR_BZ2
     else:
         die("# error: unknown file extension")
     #
@@ -157,7 +159,9 @@ def uncompress():
     tar_options = "xvf"
     if ftype == TGZ:
         tar_options = "xvzf"
-    if ftype in [TAR, TGZ]:
+    if ftype == TAR_BZ2:
+        tar_options = "xvjf"
+    if ftype in [TAR, TGZ, TAR_BZ2]:
         cmd = "tar {options} {fname} -C {to_dir}".format(options=tar_options,
                                                          to_dir=str(to_dir),
                                                          fname=fname)

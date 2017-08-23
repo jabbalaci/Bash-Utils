@@ -112,7 +112,7 @@ get_links.py
 
 github_user_email.py
 --------------------
-* An interactive program that figures out the email address of a GitHGub user.
+* An interactive program that figures out the email address of a GitHub user.
 * Usage: `github_user_email.py`
 
 here.py and here.sh

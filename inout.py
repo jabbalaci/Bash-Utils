@@ -103,7 +103,7 @@ def compress():
         tar_options = "cvzf"
     if ext in ["tar", "tgz"]:
         fname = str(dname) + ".tgz"
-        cmd = "tar {options} {to_dir}/{fname} {dname}".format(options=tar_options,
+        cmd = 'tar {options} "{to_dir}/{fname}" "{dname}"'.format(options=tar_options,
                                                               to_dir=str(to_dir),
                                                               fname=fname,
                                                               dname=dname)
@@ -112,7 +112,7 @@ def compress():
     zip_options = "-r"
     if ext == "zip":
         fname = str(dname) + ".zip"
-        cmd = "zip {options} {to_dir}/{fname} {dname}".format(options=zip_options,
+        cmd = 'zip {options} "{to_dir}/{fname}" "{dname}"'.format(options=zip_options,
                                                               to_dir=str(to_dir),
                                                               fname=fname,
                                                               dname=dname)
@@ -162,13 +162,13 @@ def uncompress():
     if ftype == TAR_BZ2:
         tar_options = "xvjf"
     if ftype in [TAR, TGZ, TAR_BZ2]:
-        cmd = "tar {options} {fname} -C {to_dir}".format(options=tar_options,
+        cmd = 'tar {options} "{fname}" -C "{to_dir}"'.format(options=tar_options,
                                                          to_dir=str(to_dir),
                                                          fname=fname)
         print("# " + cmd)
         os.system(cmd)
     if ftype == ZIP:
-        cmd = "unzip {fname} -d {to_dir}".format(options=tar_options,
+        cmd = 'unzip "{fname}" -d "{to_dir}"'.format(options=tar_options,
                                                          to_dir=str(to_dir),
                                                          fname=fname)
         print("# " + cmd)

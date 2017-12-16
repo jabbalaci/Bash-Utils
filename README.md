@@ -211,6 +211,11 @@ md5-encoded version. The output is a 32-character long
 hexa string.
 * Usage: `to_md5`
 
+to_utf8.py
+----------
+* Convert a text file to an UTF-8-encoded text. The output is printed to the screen.
+* Usage: `to_utf8 input.txt`
+
 tocb.py
 -------
 * Copy the text from the standard input to ALL clipboards. Thus, you can use any paste method to insert your text (middle mouse button or Shift+Insert). The name stands for "to clipboard(s)".

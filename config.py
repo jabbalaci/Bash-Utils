@@ -12,6 +12,8 @@ TESSERACT = '/usr/bin/tesseract'
 XSEL = '/usr/bin/xsel'
 YOUTUBE_DL = '/usr/bin/youtube-dl'
 FFMPEG = '/usr/bin/ffmpeg'
+FILE = '/usr/bin/file'
+ICONV = '/usr/bin/iconv'
 
 ASSETS_DIR = str(Path(ROOT_DIR, 'assets'))
 ASSETS_OCR_DIR = str(Path(ROOT_DIR, 'assets', 'ocr'))

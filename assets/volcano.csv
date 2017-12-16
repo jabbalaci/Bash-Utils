@@ -1,0 +1,11 @@
+NUMBER;RN;SN;VN;NAME;LOCATION;STATUS;LATX;NS;VF;LONGX;EW;ELEV;TYPE;TIMEFRAME
+0100-01-;01;00;-01-;West Eifel Volc Field;Germany;Radiocarbon;50,16666667;N;*;6,85;E;600;Maars;D7
+0100-02-;01;00;-02-;Chaîne des Puys;France;Radiocarbon;45,775;N;*;2,966666667;E;1464;Lava domes;D7
+0100-03-;01;00;-03-;Olot Volc Field;Spain;Holocene;42,16666667;N;*;2,533333333;E;893;Pyroclastic cones;U
+0100-04-;01;00;-04-;Calatrava Volc Field;Spain;Radiocarbon;38,86666667;N;*;-4,016666667;W;1117;Pyroclastic cones;D7
+0101-001;01;01;-001;Larderello;Italy;Historical;43,25;N;;10,86666667;E;500;Explosion craters;D6
+0101-003;01;01;-003;Vulsini;Italy;Historical;42,6;N;;11,93333333;E;800;Caldera;D7
+0101-004;01;01;-004;Alban Hills;Italy;Holocene?;41,73333333;N;;12,7;E;949;Caldera;?
+0101-01=;01;01;-01-;Campi Flegrei;Italy;Historical;40,82722222;N;;14,13888889;E;458;Caldera;D5
+0101-02=;01;01;-02-;Vesuvius;Italy;Historical;40,82138889;N;;14,42611111;E;1281;Somma volcano;D2
+0101-031;01;01;-031;Palinuro;Italy;Radiocarbon;39,48333333;N;;14,83333333;E;-70;Submarine volcano;D7

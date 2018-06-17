@@ -3,7 +3,7 @@
 """
 Generate a skeleton source code.
 
-Last update: 2017-01-08 (yyyy-mm-dd)
+Last update: 2018-06-17 (yyyy-mm-dd)
 """
 
 import os
@@ -11,9 +11,11 @@ import sys
 import shutil
 
 CWD = os.getcwd()
-TEMPLATES = os.path.abspath(os.path.dirname(sys.argv[0])) + '/' + 'templates'
+# if __file__ is a link, realpath returns the path of the pointed file
+TEMPLATES = os.path.abspath(os.path.dirname(os.path.realpath(__file__))) + '/' + 'templates'
 EXECUTABLE = ['py', 'd']
 EDITOR = 'vim'
+CODE = 'code .'
 
 
 def rename(fname):
@@ -58,8 +60,9 @@ def copy(ext, full_name=None):
 
 def edit(fname):
     ch = input("Do you want to edit the file [y/n] (default: y)? ").strip()
-    if ch=='y' or ch=='':
-        os.system('{ed} "{f}"'.format(ed=EDITOR, f=fname))
+    if ch in ('y', ''):
+        # os.system('{ed} "{f}"'.format(ed=EDITOR, f=fname))
+        os.system(CODE)
 
 
 def main():
@@ -71,6 +74,7 @@ Create an empty source file
 3) Java   [java]
 4) C      [c]
 5) D      [d]
+6) Nim    [nim]
 q) quit""")
     while True:
         try:
@@ -92,6 +96,9 @@ q) quit""")
             break
         elif ch in ['5', 'd']:
             return copy('d')
+            break
+        elif ch in ['6', 'nim']:
+            return copy('nim')
             break
         elif ch == 'q':
             print('bye.')

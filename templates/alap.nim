@@ -1,6 +1,13 @@
-import strutils
-import strformat
+import future
 import math
+import sequtils
+import strformat
+import strutils
 
 
-echo "hello nim"
+proc main() =
+  echo "hello nim"
+
+#############################################################################
+
+main()

@@ -6,7 +6,7 @@ Play online radio stations
 
 Requirement: /usr/bin/mplayer
 
-Last update: 2017-01-08 (yyyy-mm-dd)
+Last update: 2023-04-24 (yyyy-mm-dd)
 """
 
 import os
@@ -14,18 +14,17 @@ import readline
 import sys
 from pathlib import Path
 
-
-PLAYER = '/usr/bin/mplayer'
-STATIONS = 'stations.csv'
+PLAYER = "/usr/bin/mplayer"
+STATIONS = "stations.csv"
 
 
 def read_data():
     """Read the input .csv file."""
     li = []
     dic = {}
-    with open(STATIONS, 'r') as f:
+    with open(STATIONS, "r") as f:
         for index, line in enumerate(f):
-            li.append(line.rstrip("\n").split(';'))
+            li.append(line.rstrip("\n").split(";"))
             dic[li[-1][0]] = index
 
     return li, dic
@@ -38,12 +37,12 @@ def print_list(li):
     print()
     for index, e in enumerate(li):
         pos = index + 1
-        print("({pos}) {id:20}[{url}]".format(pos=pos, id=e[0], url=e[1]))
+        print("({pos:2}) {id:20}[{url}]".format(pos=pos, id=e[0], url=e[1]))
 
 
 def read_choice(li, dic):
     """Read user's choice and return the selected record."""
-    print
+    print()
     print("You can quit with 'q'.")
     while True:
         record = None
@@ -53,7 +52,7 @@ def read_choice(li, dic):
             print()
             exit(0)
         #
-        if choice == '' or choice == 'q':
+        if choice == "" or choice == "q":
             exit(0)
         # else
         try:
@@ -96,6 +95,7 @@ def main():
     print_list(li[1:])
     record = read_choice(li, dic)
     play_record(record)
+
 
 #############################################################################
 

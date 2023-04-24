@@ -1,12 +1,7 @@
 id;stream;homepage
 slay;http://relay3.slayradio.org:8000/;http://www.slayradio.org/home.php
 bestfm;http://stream.webthings.hu:8000/fm95-x-128.mp3;http://www.bestfm.hu
-retro;http://stream.retrofm.hu:8000/listen
+retro;https://icast.connectmedia.hu/5001/live.mp3
 kossuth;http://stream002.radio.hu/mr1.mp3;http://www.mr1-kossuth.hu/
 szkr;http://radio.szentkoronaradio.com:8048/;http://radio.szentkoronaradio.com
 maria;http://www.mariaradio.hu:8000/mr;http://www.mariaradio.hu
-goa;http://81.88.36.42:8030/
-trance;http://pub1.diforfree.org:8000/di_trance_hi
-chillout;http://pub1.diforfree.org:8000/di_chillout_hi
-dj mixes;http://pub1.diforfree.org:8000/di_djmixes_hi
-future synthpop;http://pub1.diforfree.org:8000/di_futuresynthpop_hi

@@ -37,7 +37,7 @@ def print_list(li):
     print()
     for index, e in enumerate(li):
         pos = index + 1
-        print("({pos:2}) {id:20}[{url}]".format(pos=pos, id=e[0], url=e[1]))
+        print("({pos}) {id:20}[{url}]".format(pos=pos, id=e[0], url=e[1]))
 
 
 def read_choice(li, dic):
